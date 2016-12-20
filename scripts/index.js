@@ -1,6 +1,7 @@
 $(function() {
   console.log("ready!");
 
+
   var isMobile = {
     Android: function() {
         return navigator.userAgent.match(/Android/i);
@@ -28,6 +29,15 @@ $(function() {
 
   setTimeout( () => {
     $("#call-me").removeClass("hide").addClass("slideInUp");
+    window.addEventListener("orientationchange", function() {
+      // if (isMobile.any()) {
+        if (window.orientation == 0) {
+          $("#thats-me").removeClass("hide").addClass("bounceIn");
+        } else {
+          $("#thats-me").removeClass("bounceIn").addClass("hide");
+        }
+      // }
+    }, false);
     if (!isMobile.any() || isPortrait()) {
       setTimeout( () => {
         $("#thats-me").removeClass("hide").addClass("bounceIn");
