@@ -25,6 +25,20 @@ $(function() {
     return window.innerHeight > window.innerWidth;
   }
 
+  let activePage = "HOME";
+
+  $("#logo-container").on('click', () => {
+    document.getElementById("mySidenav").style.width = "250px";
+    $("#current-nav-page").text("MENU");
+    document.getElementById("current-nav-page").style.color = "white";
+  });
+
+  $(".closebtn").on('click', () => {
+    document.getElementById("mySidenav").style.width = "0";
+    $("#current-nav-page").text(activePage);
+    document.getElementById("current-nav-page").style.color = "black";
+  });
+
   setTimeout( () => {
     $("#call-me").removeClass("hide").addClass("slideInUp");
 
