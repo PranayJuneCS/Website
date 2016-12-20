@@ -34,8 +34,6 @@ body {
   position: relative;
   background: url(../images/me5-min.jpg) no-repeat center center;
   background-size: cover;
-  /*-webkit-filter: grayscale(1) opacity(0.4);*/
-  /*filter: grayscale(1) opacity(0.4);*/
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -47,10 +45,80 @@ body {
   font-size: 9vw;
   height: 15vw;
   position: absolute;
-  /*filter: grayscale(0) opacity(1) !important;*/
-  /*-webkit-filter: grayscale(0) opacity(1) !important;*/
   top: 50%;
   margin-top: -8vw;
   width: 100%;
   text-align: center;
+}
+
+@media (min-width: 1200px) {
+  #thats-me {
+    left: 50%;
+    top: 40%;
+    width: 300px;
+    margin-left: 12vw;
+    margin-top: -10vw;
+    position: absolute;
+  }
+}
+
+@media (max-width: 1200px) {
+  #thats-me {
+    left: 50%;
+    top: 40%;
+    width: 220px;
+    margin-left: 12vw;
+    margin-top: -10vw;
+    position: absolute;
+  }
+}
+
+@media (max-width: 900px) {
+  #thats-me {
+    left: 50%;
+    top: 40%;
+    width: 175px;
+    margin-left: 12vw;
+    margin-top: -8vw;
+    position: absolute;
+  }
+}
+
+@media (max-width: 750px) {
+  #thats-me {
+    left: 50%;
+    top: 40%;
+    width: 150px;
+    margin-left: 10vw;
+    margin-top: -6vw;
+    position: absolute;
+  }
+}
+
+@media (max-width: 550px) {
+  #thats-me {
+    left: 50%;
+    top: 40%;
+    width: 140px;
+    margin-left: 8vw;
+    margin-top: -6vw;
+    position: absolute;
+  }
+}
+
+@media (max-width: 380px) {
+  #thats-me {
+    left: 50%;
+    top: 40%;
+    width: 120px;
+    margin-left: 8vw;
+    margin-top: -7vw;
+    position: absolute;
+  }
+}
+
+#thats-me img {
+  width: 80%;
+  display: block;
+  margin: auto;
 }
