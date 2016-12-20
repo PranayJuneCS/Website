@@ -1,4 +1,5 @@
 $(function() {
+  let activePage = "HOME";
 
   var isMobile = {
     Android: function() {
@@ -23,18 +24,24 @@ $(function() {
 
   var isPortrait = () => {
     return window.innerHeight > window.innerWidth;
-  }
+  };
 
-  let activePage = "HOME";
+  var openNav = () => {
+    document.getElementById("mySidenav").style.width = "250px";
+  };
+
+  var closeNav = () => {
+    document.getElementById("mySidenav").style.width = "0";
+  };
 
   $("#logo-container").on('click', () => {
-    document.getElementById("mySidenav").style.width = "250px";
+    openNav();
     $("#current-nav-page").text("MENU");
     document.getElementById("current-nav-page").style.color = "white";
   });
 
   $(".closebtn").on('click', () => {
-    document.getElementById("mySidenav").style.width = "0";
+    closeNav();
     $("#current-nav-page").text(activePage);
     document.getElementById("current-nav-page").style.color = "black";
   });
