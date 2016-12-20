@@ -1,6 +1,4 @@
 $(function() {
-  console.log("ready!");
-
 
   var isMobile = {
     Android: function() {
@@ -29,20 +27,21 @@ $(function() {
 
   setTimeout( () => {
     $("#call-me").removeClass("hide").addClass("slideInUp");
+
     window.addEventListener("orientationchange", function() {
-      // if (isMobile.any()) {
-        if (window.orientation == 0) {
+      if (isMobile.any()) {
+          if (window.orientation == 0) {
           $("#thats-me").removeClass("hide").addClass("bounceIn");
         } else {
           $("#thats-me").removeClass("bounceIn").addClass("hide");
         }
-      // }
+      }
     }, false);
+
     if (!isMobile.any() || isPortrait()) {
       setTimeout( () => {
         $("#thats-me").removeClass("hide").addClass("bounceIn");
       }, 1000);
     }
   }, 200);
-  
 });
