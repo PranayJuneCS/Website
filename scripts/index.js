@@ -1,7 +1,40 @@
 $(function() {
-  $.scrollTo($("#page-home"), 1000);
-  let activePage = "HOME";
+  let activeDiv = window.location.hash;
+  let activePage;
+  switch (activeDiv) {
+    case "":
+      $.scrollTo($("#page-home"), 1000);
+      activePage = "HOME";
+      break;
+    case "#home":
+      $.scrollTo($("#page-home"), 1000);
+      activePage = "HOME";
+      break;
+    case "#about":
+      $.scrollTo($("#page-about"), 1000);
+      activePage = "ABOUT";
+      break;
+    case "#projects":
+      $.scrollTo($("#page-projects"), 1000);
+      activePage = "PROJECTS";
+      break;
+    case "#stuff":
+      $.scrollTo($("#page-stuff"), 1000);
+      activePage = "STUFF";
+      break;
+    case "#contact":
+      $.scrollTo($("#page-contact"), 1000);
+      activePage = "CONTACT";
+      break;
+    default:
+      $.scrollTo($("#page-home"), 1000);
+      activePage = "HOME";
+  }
+  $("#current-nav-page").text(activePage);
+  $(".active").removeClass("active");
+  $(activeDiv).addClass("active");
   let navOpen = false;
+  let programmedScrolling = false;
 
   var isMobile = {
     Android: function() {
@@ -53,6 +86,58 @@ $(function() {
     }
   };
 
+  var isElementInView = (element, fullyInView) => {
+      var pageTop = $(window).scrollTop();
+      var pageBottom = pageTop + $(window).height();
+      var elementTop = $(element).offset().top;
+      var elementBottom = elementTop + $(element).height();
+
+      if (fullyInView === true) {
+          return ((pageTop < elementTop) && (pageBottom > elementBottom));
+      } else {
+          return ((elementTop <= pageBottom) && (elementBottom >= pageTop));
+      }
+  };
+
+  /* BEGINNING OF JQUERY/LOGIC */
+
+  window.onhashchange = function(e) {
+    console.log(e);
+    let activeDiv = window.location.hash;
+    switch (activeDiv) {
+      case "":
+        $.scrollTo($("#page-home"), 1000);
+        activePage = "HOME";
+        break;
+      case "#home":
+        $.scrollTo($("#page-home"), 1000);
+        activePage = "HOME";
+        break;
+      case "#about":
+        $.scrollTo($("#page-about"), 1000);
+        activePage = "ABOUT";
+        break;
+      case "#projects":
+        $.scrollTo($("#page-projects"), 1000);
+        activePage = "PROJECTS";
+        break;
+      case "#stuff":
+        $.scrollTo($("#page-stuff"), 1000);
+        activePage = "STUFF";
+        break;
+      case "#contact":
+        $.scrollTo($("#page-contact"), 1000);
+        activePage = "CONTACT";
+        break;
+      default:
+        $.scrollTo($("#page-home"), 1000);
+        activePage = "HOME";
+    }
+    $("#current-nav-page").text(activePage);
+    $(".active").removeClass("active");
+    $(activeDiv).addClass("active");
+  }
+
   $("#logo-container img, .hover-menu").mouseover(() => {
     if (!isMobile.any()) {
       openNav();
@@ -82,12 +167,29 @@ $(function() {
   });
 
   $(".item").on('click', (event) => {
-    $.scrollTo($("#page-" + event.target.id), 1000);
+    programmedScrolling = true;
+    $.scrollTo($("#page-" + event.target.id), 1000, {
+      onAfter: function() {
+        programmedScrolling = false;
+      }
+    });
     closeNav();
     activePage = event.target.id.toUpperCase();
     $("#current-nav-page").text(activePage);
     $(".active").removeClass("active");
     $("#" + event.target.id).addClass("active");
+  });
+
+  $(window).scroll(function(e) {
+    // if (!programmedScrolling) {
+    //   var inView = isElementInView($('#page-' + activePage.toLowerCase()), false);
+    //   if (inView) {
+    //       console.log('in view');
+    //   } else {
+    //       console.log('out of view');
+    //   }
+    // }
+    // console.log(e);
   });
 
   setTimeout( () => {
