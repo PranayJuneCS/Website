@@ -50,8 +50,16 @@ $(function() {
   };
 
   $("#logo-container img, #hover-menu").mouseover(() => {
-    toggleNav();
+    if (!isMobile.any()) {
+      toggleNav();
+    }
   });
+
+  $("#logo-container img").on('click', () => {
+    if (isMobile.any()) {
+      toggleNav();
+    }
+  })
 
   $(".closebtn").on('click', () => {
     closeNav();
