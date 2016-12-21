@@ -1,5 +1,9 @@
 $(function() {
 
+  $("html, body").css({
+    height: $(window).height()
+  });
+
   let programmedScrolling = false;
 
   var scrollToDiv = (div) => {
