@@ -1,9 +1,5 @@
 $(function() {
 
-  $("html, body, #wrapper").css({
-    height: $(window).height()
-  });
-
   let programmedScrolling = false;
 
   var scrollToDiv = (div) => {
@@ -190,8 +186,13 @@ $(function() {
   var down = 0;
   var listen = true;
 
+  // window.ontouchmove = (e) => {
+  //   console.log("TOUCHMOVE");
+  // };
+
   $('html, body').on('DOMMouseScroll mousewheel', function(e) {
-    
+    console.log("TOUCHMOVE");
+    console.log(e);
     e.preventDefault();
 
     if(!listen) {
