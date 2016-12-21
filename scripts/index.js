@@ -1,28 +1,33 @@
 $(function() {
 
-  $('body').addClass('stop-scrolling');
-
   let programmedScrolling = false;
 
   var scrollToDiv = (div) => {
     programmedScrolling = true;
     $.scrollTo($(div), 700, {
       onAfter: function() {
-        console.log("DONE");
         programmedScrolling = false;
       }
     });
   }
 
+  var changeActivePage = (newActivePage, newActiveDiv) => {
+    $("#current-nav-page").text(newActivePage);
+    $(".active").removeClass("active");
+    $(newActiveDiv).addClass("active");
+  }
+
   let activeDiv = window.location.hash;
   let activePage;
   switch (activeDiv) {
-    case "":
-      activeDiv = "#home";
-    case "#home":
-      scrollToDiv("#page-home");
-      activePage = "HOME";
-      break;
+    // case "":
+    //   scrollToDiv("#page-home");
+    //   activePage = "HOME";
+    //   break;
+    // case "#home":
+    //   scrollToDiv("#page-home");
+    //   activePage = "HOME";
+    //   break;
     case "#about":
       scrollToDiv("#page-about");
       activePage = "ABOUT";
@@ -42,10 +47,9 @@ $(function() {
     default:
       scrollToDiv("#page-home");
       activePage = "HOME";
+      activeDiv = "#home";
   }
-  $("#current-nav-page").text(activePage);
-  $(".active").removeClass("active");
-  $(activeDiv).addClass("active");
+  changeActivePage(activePage, activeDiv);
   let navOpen = false;
   
 
@@ -99,30 +103,21 @@ $(function() {
     }
   };
 
-  var isElementInView = (element, fullyInView) => {
-      var pageTop = $(window).scrollTop();
-      var pageBottom = pageTop + $(window).height();
-      var elementTop = $(element).offset().top;
-      var elementBottom = elementTop + $(element).height();
-
-      if (fullyInView === true) {
-          return ((pageTop < elementTop) && (pageBottom > elementBottom));
-      } else {
-          return ((elementTop <= pageBottom) && (elementBottom >= pageTop));
-      }
-  };
-
   /* BEGINNING OF JQUERY/LOGIC */
 
   window.onhashchange = function(e) {
+    console.log(e);
     let activeDiv = window.location.hash;
+    console.log(activeDiv);
     switch (activeDiv) {
-      case "":
-        activeDiv = "#home";
-      case "#home":
-        scrollToDiv("#page-home");
-        activePage = "HOME";
-        break;
+      // case "":
+      //   scrollToDiv("#page-home");
+      //   activePage = "HOME";
+      //   break;
+      // case "#home":
+      //   scrollToDiv("#page-home");
+      //   activePage = "HOME";
+      //   break;
       case "#about":
         scrollToDiv("#page-about");
         activePage = "ABOUT";
@@ -140,12 +135,12 @@ $(function() {
         activePage = "CONTACT";
         break;
       default:
+        console.log("YOOOOO");
         scrollToDiv("#page-home");
         activePage = "HOME";
+        activeDiv = "#home";
     }
-    $("#current-nav-page").text(activePage);
-    $(".active").removeClass("active");
-    $(activeDiv).addClass("active");
+    changeActivePage(activePage, activeDiv);
   }
 
   $("#logo-container img, .hover-menu").mouseover(() => {
@@ -178,33 +173,43 @@ $(function() {
 
   $(".item").on('click', (event) => {
     programmedScrolling = true;
+    console.log(event.target.id);
     window.location.hash = "#" + event.target.id;
     closeNav();
     activePage = event.target.id.toUpperCase();
-    $("#current-nav-page").text(activePage);
-    $(".active").removeClass("active");
-    $("#" + event.target.id).addClass("active");
+    changeActivePage(activePage, "#" + event.target.id);
   });
 
-  var $pages = $(".full-screen"),
-      tot = $pages.length,
-      c = 0, pagePos = 0, down = 0, listen = true;
+  var $pages = $(".full-screen");
+  var index = 0;
+  var pagePos = 0;
+  var down = 0;
+  var listen = true;
 
   $('html, body').on('DOMMouseScroll mousewheel', function(e) {
     
     e.preventDefault();
-    if(!listen)return;
+
+    if(!listen) {
+      return;
+    }
     
     listen = false;
-    
-    down = e.originalEvent.detail > 0 || e.originalEvent.wheelDelta < 0;
-    console.log(down);
-    c = Math.min(Math.max(0, down ? ++c : --c), tot-1);
-    pagePos = $pages.eq(c).offset().top;  
-    $(this).stop().animate({scrollTop: pagePos}, 700, function(){
+    if (Math.abs(e.originalEvent.deltaY) < 13) { // not enough scroll
+      listen = true;
+      return false;
+    }
+    down = e.originalEvent.deltaY > 0;
+    index = Math.min(Math.max(0, down ? ++index : --index), $pages.length - 1);
+    pagePos = $pages.eq(index).offset().top;
+
+    $(this).stop().animate({scrollTop: pagePos}, 700, () => {
       listen = true;
     });
-    
+
+    let pageId = $pages[index].id.split("-")[1];
+    activePage = pageId.toUpperCase();
+    changeActivePage(activePage, "#" + pageId);
   });
 
   setTimeout( () => {
