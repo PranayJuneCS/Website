@@ -60,7 +60,7 @@ $(function() {
   });
 
   $("#logo-container img").on('click', () => {
-    if (isMobile.any()) {
+    if (isMobile.any() || isMobile.isPad()) {
       toggleNav();
     }
   });
