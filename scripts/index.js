@@ -10,7 +10,7 @@ $(function() {
     BlackBerry: function() {
         return navigator.userAgent.match(/BlackBerry/i);
     },
-    iOS: function() {
+    iOS: function() { // iPad not considered Mobile...
         return navigator.userAgent.match(/iPhone|iPod/i);
     },
     Opera: function() {
@@ -21,6 +21,9 @@ $(function() {
     },
     any: function() {
         return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+    },
+    isPad: function() {
+      return navigator.userAgent.match(/iPad/i);
     }
   };
 
@@ -71,7 +74,7 @@ $(function() {
   });
 
   $(".full-screen").on('click', () => {
-    if (isMobile.any()) {
+    if (isMobile.any() || isMobile.isPad()) {
       if (navOpen) {
         closeNav();
       }
