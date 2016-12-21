@@ -18,6 +18,14 @@ body {
   overflow: hidden;
 }
 
+.about-me {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  text-align: center;
+  overflow: hidden;
+}
+
 .page-header h1 {
   font-size: 9vw;
   height: 15vw;
@@ -112,7 +120,7 @@ body {
   height: 80px;
   width: 80px;
   background-color: transparent;
-  position: absolute;
+  position: fixed;
   top: 0%;
   z-index: 5;
   display: flex;
