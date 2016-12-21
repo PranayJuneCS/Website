@@ -51,7 +51,7 @@ $(function() {
 
   $("#logo-container img, #hover-menu").mouseover(() => {
     if (!isMobile.any()) {
-      toggleNav();
+      openNav();
     }
   });
 
@@ -59,7 +59,7 @@ $(function() {
     if (isMobile.any()) {
       toggleNav();
     }
-  })
+  });
 
   $(".closebtn").on('click', () => {
     closeNav();
@@ -67,6 +67,14 @@ $(function() {
 
   $("#mySidenav").mouseleave(() => {
     closeNav();
+  });
+
+  $(".page-header").on('click', () => {
+    if (isMobile.any()) {
+      if (navOpen) {
+        closeNav();
+      }
+    }
   });
 
   setTimeout( () => {
