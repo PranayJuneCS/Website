@@ -186,9 +186,6 @@ $(function() {
   var mobile_up = 0;
   var mobile_listen = true;
 
-  // window.ontouchmove = (e) => {
-  //   console.log("TOUCHMOVE");
-  // };
   $('html, body').swipe({
     swipe: function (event, direction, distance, duration, fingerCount, fingerData) {
       event.preventDefault();
