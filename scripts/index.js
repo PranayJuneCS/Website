@@ -70,7 +70,7 @@ $(function() {
     closeNav();
   });
 
-  $(".page-header, .full-screen").on('click', () => {
+  $(".full-screen").on('click', () => {
     if (isMobile.any()) {
       if (navOpen) {
         closeNav();
