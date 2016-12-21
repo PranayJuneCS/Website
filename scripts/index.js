@@ -20,14 +20,6 @@ $(function() {
   let activeDiv = window.location.hash;
   let activePage;
   switch (activeDiv) {
-    // case "":
-    //   scrollToDiv("#page-home");
-    //   activePage = "HOME";
-    //   break;
-    // case "#home":
-    //   scrollToDiv("#page-home");
-    //   activePage = "HOME";
-    //   break;
     case "#about":
       scrollToDiv("#page-about");
       activePage = "ABOUT";
@@ -106,18 +98,8 @@ $(function() {
   /* BEGINNING OF JQUERY/LOGIC */
 
   window.onhashchange = function(e) {
-    console.log(e);
     let activeDiv = window.location.hash;
-    console.log(activeDiv);
     switch (activeDiv) {
-      // case "":
-      //   scrollToDiv("#page-home");
-      //   activePage = "HOME";
-      //   break;
-      // case "#home":
-      //   scrollToDiv("#page-home");
-      //   activePage = "HOME";
-      //   break;
       case "#about":
         scrollToDiv("#page-about");
         activePage = "ABOUT";
