@@ -49,7 +49,7 @@ $(function() {
     }
   };
 
-  $("#logo-container img, #hover-menu").mouseover(() => {
+  $("#logo-container img, .hover-menu").mouseover(() => {
     if (!isMobile.any()) {
       openNav();
     }
