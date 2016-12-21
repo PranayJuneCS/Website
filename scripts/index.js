@@ -1,6 +1,6 @@
 $(function() {
 
-  $("html, body").css({
+  $("html, body, #wrapper").css({
     height: $(window).height()
   });
 
