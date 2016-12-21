@@ -189,10 +189,13 @@ $(function() {
   // window.ontouchmove = (e) => {
   //   console.log("TOUCHMOVE");
   // };
+  $('html, body').swipe({
+    swipe: function (event, direction, distance, duration, fingerCount, fingerData) {
+      console.log(arguments);  
+    }
+  });
 
   $('html, body').on('DOMMouseScroll mousewheel', function(e) {
-    console.log("TOUCHMOVE");
-    console.log(e);
     e.preventDefault();
 
     if(!listen) {
@@ -208,7 +211,8 @@ $(function() {
     index = Math.min(Math.max(0, down ? ++index : --index), $pages.length - 1);
     pagePos = $pages.eq(index).offset().top;
 
-    $(this).stop().animate({scrollTop: pagePos}, 700, () => {
+    $(this).stop().animate({scrollTop: pagePos}, 600, () => {
+      // setTimeout(() => { listen: true }, 300);
       listen = true;
     });
 
