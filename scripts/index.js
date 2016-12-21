@@ -180,20 +180,47 @@ $(function() {
     changeActivePage(activePage, "#" + event.target.id);
   });
 
-  var $pages = $(".full-screen");
-  var index = 0;
-  var pagePos = 0;
-  var down = 0;
-  var listen = true;
+  var $mobile_pages = $(".full-screen");
+  var mobile_index = 0;
+  var mobile_pagePos = 0;
+  var mobile_up = 0;
+  var mobile_listen = true;
 
   // window.ontouchmove = (e) => {
   //   console.log("TOUCHMOVE");
   // };
   $('html, body').swipe({
     swipe: function (event, direction, distance, duration, fingerCount, fingerData) {
-      console.log(arguments);  
+      event.preventDefault();
+
+      if(!mobile_listen) {
+        return;
+      }
+      
+      mobile_listen = false;
+      if (duration <= 150) { // not enough swipe
+        mobile_listen = true;
+        return false;
+      }
+      mobile_up = direction != "down";
+      mobile_index = Math.min(Math.max(0, mobile_up ? ++mobile_index : --mobile_index), $mobile_pages.length - 1);
+      mobile_pagePos = $mobile_pages.eq(mobile_index).offset().top;
+
+      $(this).stop().animate({scrollTop: mobile_pagePos}, 600, () => {
+        mobile_listen = true;
+      });
+
+      let pageId = $mobile_pages[mobile_index].id.split("-")[1];
+      activePage = pageId.toUpperCase();
+      changeActivePage(activePage, "#" + pageId);
     }
   });
+
+  var $pages = $(".full-screen");
+  var index = 0;
+  var pagePos = 0;
+  var down = 0;
+  var listen = true;
 
   $('html, body').on('DOMMouseScroll mousewheel', function(e) {
     e.preventDefault();
@@ -212,7 +239,6 @@ $(function() {
     pagePos = $pages.eq(index).offset().top;
 
     $(this).stop().animate({scrollTop: pagePos}, 600, () => {
-      // setTimeout(() => { listen: true }, 300);
       listen = true;
     });
 
