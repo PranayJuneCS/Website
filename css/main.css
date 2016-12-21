@@ -128,7 +128,7 @@ body {
   height: 100vh;
   position: absolute;
   left: 0%;
-  z-index: 10000;
+  z-index: 10;
 }
 
 #logo-container {
