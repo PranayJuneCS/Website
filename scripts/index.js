@@ -82,6 +82,7 @@ $(function() {
     $.scrollTo($("#page-" + event.target.id), 1000);
     closeNav();
     activePage = event.target.id.toUpperCase();
+    $("#current-nav-page").text(activePage);
     $(".active").removeClass("active");
     $("#" + event.target.id).addClass("active");
   });
