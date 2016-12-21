@@ -5,8 +5,8 @@
     <meta name='viewport' content='width=device-width, initial-scale=1' />
     <title>Pranay Kumar</title>
     <script src="scripts/vendors/jquery.min.js"></script>
-    <script src="scripts/vendors/scrollTo.min.js"></script>
     <script src="scripts/vendors/materialize.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.scrollto/2.1.2/jquery.scrollTo.min.js"></script>
     <link rel='stylesheet' href='css/materialize.min.css' />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <link rel='stylesheet' href='css/main.css' />
@@ -16,24 +16,36 @@
       <img src="images/logo.png">
       <h5 id='current-nav-page'>HOME</h5>
     </div>
-    <div class="page-header animated fadeIn">
+    <div id="page-home" class="page-header animated fadeIn">
       <div id="thats-me" class="animated hide">
         <img src="images/arrow.png">
       </div>
       <h1 id="call-me" class="animated hide">Pranay Kumar.</h1>
       <div class="hover-menu"></div>
     </div>
-    <div class="about-me">
-      <h1>YO</h1>
+    <div id="page-about" class="full-screen">
+      <h1>About</h1>
+      <div class="hover-menu"></div>
+    </div>
+    <div id="page-projects" class="full-screen">
+      <h1>Projects</h1>
+      <div class="hover-menu"></div>
+    </div>
+    <div id="page-stuff" class="full-screen">
+      <h1>Stuff</h1>
+      <div class="hover-menu"></div>
+    </div>
+    <div id="page-contact" class="full-screen">
+      <h1>Contact</h1>
       <div class="hover-menu"></div>
     </div>
     <div id="mySidenav" class="sidenav">
       <a href="javascript:void(0)" class="closebtn">&times;</a>
-      <a class="active" href="#">HOME</a>
-      <a href="#">ABOUT</a>
-      <a href="#">PROJECTS</a>
-      <a href="#">STUFF</a>
-      <a href="#">CONTACT</a>
+      <a id="home" class="item active" href="#">HOME</a>
+      <a id="about" class="item" href="#about">ABOUT</a>
+      <a id="projects" class="item" href="#projects">PROJECTS</a>
+      <a id="stuff" class="item" href="#stuff">STUFF</a>
+      <a id="contact" class="item" href="#contact">CONTACT</a>
     </div>
     <script src="scripts/index.js"></script>
   </body>

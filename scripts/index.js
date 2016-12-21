@@ -1,4 +1,5 @@
 $(function() {
+  $.scrollTo($("#page-home"), 1000);
   let activePage = "HOME";
   let navOpen = false;
 
@@ -69,12 +70,20 @@ $(function() {
     closeNav();
   });
 
-  $(".page-header").on('click', () => {
+  $(".page-header, .about-me").on('click', () => {
     if (isMobile.any()) {
       if (navOpen) {
         closeNav();
       }
     }
+  });
+
+  $(".item").on('click', (event) => {
+    $.scrollTo($("#page-" + event.target.id), 1000);
+    closeNav();
+    activePage = event.target.id.toUpperCase();
+    $(".active").removeClass("active");
+    $("#" + event.target.id).addClass("active");
   });
 
   setTimeout( () => {
