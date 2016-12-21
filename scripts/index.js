@@ -1,5 +1,6 @@
 $(function() {
   let activePage = "HOME";
+  let navOpen = false;
 
   var isMobile = {
     Android: function() {
@@ -28,22 +29,36 @@ $(function() {
 
   var openNav = () => {
     document.getElementById("mySidenav").style.width = "250px";
+    $("#current-nav-page").text("MENU");
+    document.getElementById("current-nav-page").style.color = "white";
+    navOpen = true;
   };
 
   var closeNav = () => {
     document.getElementById("mySidenav").style.width = "0";
+    $("#current-nav-page").text(activePage);
+    document.getElementById("current-nav-page").style.color = "black";
+    navOpen = false;
   };
 
-  $("#logo-container").on('click', () => {
-    openNav();
-    $("#current-nav-page").text("MENU");
-    document.getElementById("current-nav-page").style.color = "white";
+  var toggleNav = () => {
+    if (navOpen) {
+      closeNav();
+    } else {
+      openNav();
+    }
+  };
+
+  $("#logo-container img, #hover-menu").mouseover(() => {
+    toggleNav();
   });
 
   $(".closebtn").on('click', () => {
     closeNav();
-    $("#current-nav-page").text(activePage);
-    document.getElementById("current-nav-page").style.color = "black";
+  });
+
+  $("#mySidenav").mouseleave(() => {
+    closeNav();
   });
 
   setTimeout( () => {

@@ -123,13 +123,21 @@ body {
   margin: auto;
 }
 
+#hover-menu {
+  width: 50px;
+  height: 100vh;
+  position: absolute;
+  left: 0%;
+  z-index: 10000;
+}
+
 #logo-container {
   height: 80px;
   width: 80px;
   background-color: transparent;
   position: absolute;
   top: 0%;
-  z-index: 1000;
+  z-index: 5;
   display: flex;
   align-items: center;
 }
@@ -138,22 +146,22 @@ body {
   height: 100%;
   display: block;
   padding-right: 5px;
+  cursor: pointer;
 }
 
 .sidenav {
-  height: 100%; /* 100% Full-height */
-  width: 0; /* 0 width - change this with JavaScript */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Stay on top */
+  height: 100%;
+  position: fixed;
+  width: 0;
+  z-index: 1;
   top: 0;
   left: 0;
-  background-color: black; /* Black*/
-  overflow-x: hidden; /* Disable horizontal scroll */
-  padding-top: 80px; /* Place content 60px from the top */
-  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+  background-color: black;
+  overflow-x: hidden; 
+  padding-top: 80px;
+  transition: 0.5s; 
 }
 
-/* The navigation menu links */
 .sidenav a {
   padding: 8px 8px 8px 32px;
   text-decoration: none;
@@ -168,12 +176,10 @@ body {
   color: purple;
 }
 
-/* When you mouse over the navigation links, change their color */
 .sidenav a:hover, .offcanvas a:focus{
   color: #f1f1f1;
 }
 
-/* Position and style the close button (top right corner) */
 .sidenav .closebtn {
   position: absolute;
   top: 0;
@@ -186,7 +192,6 @@ body {
   font-weight: bold;
 }
 
-/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
 @media screen and (max-height: 450px) {
   .sidenav a {font-size: 18px;}
 }
