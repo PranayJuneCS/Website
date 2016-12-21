@@ -1,40 +1,53 @@
 $(function() {
+
+  $('body').addClass('stop-scrolling');
+
+  let programmedScrolling = false;
+
+  var scrollToDiv = (div) => {
+    programmedScrolling = true;
+    $.scrollTo($(div), 700, {
+      onAfter: function() {
+        console.log("DONE");
+        programmedScrolling = false;
+      }
+    });
+  }
+
   let activeDiv = window.location.hash;
   let activePage;
   switch (activeDiv) {
     case "":
-      $.scrollTo($("#page-home"), 1000);
-      activePage = "HOME";
-      break;
+      activeDiv = "#home";
     case "#home":
-      $.scrollTo($("#page-home"), 1000);
+      scrollToDiv("#page-home");
       activePage = "HOME";
       break;
     case "#about":
-      $.scrollTo($("#page-about"), 1000);
+      scrollToDiv("#page-about");
       activePage = "ABOUT";
       break;
     case "#projects":
-      $.scrollTo($("#page-projects"), 1000);
+      scrollToDiv("#page-projects");
       activePage = "PROJECTS";
       break;
     case "#stuff":
-      $.scrollTo($("#page-stuff"), 1000);
+      scrollToDiv("#page-stuff");
       activePage = "STUFF";
       break;
     case "#contact":
-      $.scrollTo($("#page-contact"), 1000);
+      scrollToDiv("#page-contact");
       activePage = "CONTACT";
       break;
     default:
-      $.scrollTo($("#page-home"), 1000);
+      scrollToDiv("#page-home");
       activePage = "HOME";
   }
   $("#current-nav-page").text(activePage);
   $(".active").removeClass("active");
   $(activeDiv).addClass("active");
   let navOpen = false;
-  let programmedScrolling = false;
+  
 
   var isMobile = {
     Android: function() {
@@ -102,35 +115,32 @@ $(function() {
   /* BEGINNING OF JQUERY/LOGIC */
 
   window.onhashchange = function(e) {
-    console.log(e);
     let activeDiv = window.location.hash;
     switch (activeDiv) {
       case "":
-        $.scrollTo($("#page-home"), 1000);
-        activePage = "HOME";
-        break;
+        activeDiv = "#home";
       case "#home":
-        $.scrollTo($("#page-home"), 1000);
+        scrollToDiv("#page-home");
         activePage = "HOME";
         break;
       case "#about":
-        $.scrollTo($("#page-about"), 1000);
+        scrollToDiv("#page-about");
         activePage = "ABOUT";
         break;
       case "#projects":
-        $.scrollTo($("#page-projects"), 1000);
+        scrollToDiv("#page-projects");
         activePage = "PROJECTS";
         break;
       case "#stuff":
-        $.scrollTo($("#page-stuff"), 1000);
+        scrollToDiv("#page-stuff");
         activePage = "STUFF";
         break;
       case "#contact":
-        $.scrollTo($("#page-contact"), 1000);
+        scrollToDiv("#page-contact");
         activePage = "CONTACT";
         break;
       default:
-        $.scrollTo($("#page-home"), 1000);
+        scrollToDiv("#page-home");
         activePage = "HOME";
     }
     $("#current-nav-page").text(activePage);
@@ -168,11 +178,7 @@ $(function() {
 
   $(".item").on('click', (event) => {
     programmedScrolling = true;
-    $.scrollTo($("#page-" + event.target.id), 1000, {
-      onAfter: function() {
-        programmedScrolling = false;
-      }
-    });
+    window.location.hash = "#" + event.target.id;
     closeNav();
     activePage = event.target.id.toUpperCase();
     $("#current-nav-page").text(activePage);
@@ -180,16 +186,25 @@ $(function() {
     $("#" + event.target.id).addClass("active");
   });
 
-  $(window).scroll(function(e) {
-    // if (!programmedScrolling) {
-    //   var inView = isElementInView($('#page-' + activePage.toLowerCase()), false);
-    //   if (inView) {
-    //       console.log('in view');
-    //   } else {
-    //       console.log('out of view');
-    //   }
-    // }
-    // console.log(e);
+  var $pages = $(".full-screen"),
+      tot = $pages.length,
+      c = 0, pagePos = 0, down = 0, listen = true;
+
+  $('html, body').on('DOMMouseScroll mousewheel', function(e) {
+    
+    e.preventDefault();
+    if(!listen)return;
+    
+    listen = false;
+    
+    down = e.originalEvent.detail > 0 || e.originalEvent.wheelDelta < 0;
+    console.log(down);
+    c = Math.min(Math.max(0, down ? ++c : --c), tot-1);
+    pagePos = $pages.eq(c).offset().top;  
+    $(this).stop().animate({scrollTop: pagePos}, 700, function(){
+      listen = true;
+    });
+    
   });
 
   setTimeout( () => {

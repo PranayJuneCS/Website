@@ -5,6 +5,11 @@ body {
   min-height: 100%;
 }
 
+.stop-scrolling {
+  height: 100%;
+  overflow: hidden;
+}
+
 .full-screen {
   height: 100vh;
   width: 100vw;
