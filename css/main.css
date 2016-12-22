@@ -175,6 +175,21 @@ body {
   font-weight: bold;
 }
 
+.next-arrow {
+  position: absolute;
+  font-size: 50px;
+  color: black;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 5%;
+}
+
+.next-arrow:hover {
+  color: purple;
+}
+
 @media screen and (max-height: 450px) {
   .sidenav a {font-size: 18px;}
+  .next-arrow {font-size: 30px;}
+  .next-arrow:hover {color: black;}
 }

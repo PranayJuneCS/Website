@@ -194,7 +194,7 @@ $(function() {
     swipe: function (event, direction, distance, duration, fingerCount, fingerData) {
       event.preventDefault();
 
-      if(!mobile_listen) {
+      if(!mobile_listen || navOpen) {
         return;
       }
       
@@ -222,10 +222,9 @@ $(function() {
   listen = true;
 
   $('html, body').on('DOMMouseScroll mousewheel', function(e) {
-    console.log(listen);
     e.preventDefault();
 
-    if(!listen) {
+    if(!listen || navOpen) {
       return;
     }
     
