@@ -43,6 +43,17 @@ $(function() {
   }
   changeActivePage(activePage, activeDiv);
   let navOpen = false;
+
+  var $mobile_pages;
+  var mobile_index;
+  var mobile_pagePos;
+  var mobile_up;
+  var mobile_listen;
+  var $pages;
+  var index;
+  var pagePos;
+  var down;
+  var listen;
   
 
   var isMobile = {
@@ -101,23 +112,32 @@ $(function() {
     let activeDiv = window.location.hash;
     switch (activeDiv) {
       case "#about":
+        mobile_index = 1;
+        index = 1;
         scrollToDiv("#page-about");
         activePage = "ABOUT";
         break;
       case "#projects":
+        mobile_index = 2;
+        index = 2;
         scrollToDiv("#page-projects");
         activePage = "PROJECTS";
         break;
       case "#stuff":
+        mobile_index = 3;
+        index = 3;
         scrollToDiv("#page-stuff");
         activePage = "STUFF";
         break;
       case "#contact":
+        mobile_index = 4;
+        index = 4;
         scrollToDiv("#page-contact");
         activePage = "CONTACT";
         break;
       default:
-        console.log("YOOOOO");
+        mobile_index = 0;
+        index = 0;
         scrollToDiv("#page-home");
         activePage = "HOME";
         activeDiv = "#home";
@@ -156,17 +176,18 @@ $(function() {
   $(".item").on('click', (event) => {
     programmedScrolling = true;
     console.log(event.target.id);
+    window.location.hash = "#";
     window.location.hash = "#" + event.target.id;
     closeNav();
     activePage = event.target.id.toUpperCase();
     changeActivePage(activePage, "#" + event.target.id);
   });
 
-  var $mobile_pages = $(".full-screen");
-  var mobile_index = 0;
-  var mobile_pagePos = 0;
-  var mobile_up = 0;
-  var mobile_listen = true;
+  $mobile_pages = $(".full-screen");
+  mobile_index = 0;
+  mobile_pagePos = 0;
+  mobile_up = 0;
+  mobile_listen = true;
 
   $('html, body').swipe({
     swipe: function (event, direction, distance, duration, fingerCount, fingerData) {
@@ -177,7 +198,7 @@ $(function() {
       }
       
       mobile_listen = false;
-      if (duration <= 150) { // not enough swipe
+      if (duration <= 100 || !["down", "up"].includes(direction)) { // not enough swipe
         mobile_listen = true;
         return false;
       }
@@ -185,21 +206,24 @@ $(function() {
       mobile_index = Math.min(Math.max(0, mobile_up ? ++mobile_index : --mobile_index), $mobile_pages.length - 1);
       mobile_pagePos = $mobile_pages.eq(mobile_index).offset().top;
 
+      let pageId = $mobile_pages[mobile_index].id.split("-")[1];
       $(this).stop().animate({scrollTop: mobile_pagePos}, 600, () => {
         mobile_listen = true;
+        window.location.hash = "#" + pageId;
       });
 
-      let pageId = $mobile_pages[mobile_index].id.split("-")[1];
-      activePage = pageId.toUpperCase();
-      changeActivePage(activePage, "#" + pageId);
+      // let pageId = $mobile_pages[mobile_index].id.split("-")[1];
+      // activePage = pageId.toUpperCase();
+      // changeActivePage(activePage, "#" + pageId);
+      // window.location.hash = "#" + pageId;
     }
   });
 
-  var $pages = $(".full-screen");
-  var index = 0;
-  var pagePos = 0;
-  var down = 0;
-  var listen = true;
+  $pages = $(".full-screen");
+  index = 0;
+  pagePos = 0;
+  down = 0;
+  listen = true;
 
   $('html, body').on('DOMMouseScroll mousewheel', function(e) {
     e.preventDefault();
