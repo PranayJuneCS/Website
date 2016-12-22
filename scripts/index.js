@@ -179,6 +179,12 @@ $(function() {
     // console.log(event.target.id);
     // window.location.hash = "#";
     // window.location.hash = "#" + event.target.id;
+    if (history.pushState) {
+      if (window.location.hash == ("#" + event.target.id)) {
+        event.preventDefault();
+        history.replaceState({}, '', ("#" + event.target.id));
+      }
+    }
     closeNav();
     // activePage = event.target.id.toUpperCase();
     // changeActivePage(activePage, "#" + event.target.id);
