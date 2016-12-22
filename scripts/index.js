@@ -176,12 +176,12 @@ $(function() {
 
   $(".item").on('click', (event) => {
     programmedScrolling = true;
-    console.log(event.target.id);
+    // console.log(event.target.id);
     // window.location.hash = "#";
-    window.location.hash = "#" + event.target.id;
+    // window.location.hash = "#" + event.target.id;
     closeNav();
-    activePage = event.target.id.toUpperCase();
-    changeActivePage(activePage, "#" + event.target.id);
+    // activePage = event.target.id.toUpperCase();
+    // changeActivePage(activePage, "#" + event.target.id);
   });
 
   $mobile_pages = $(".full-screen");
