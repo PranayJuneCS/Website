@@ -2,11 +2,24 @@ $(function() {
 
   let programmedScrolling = false;
 
+  var $mobile_pages;
+  var mobile_index;
+  var mobile_pagePos;
+  var mobile_up;
+  var mobile_listen;
+  var $pages;
+  var index;
+  var pagePos;
+  var down;
+  var listen;
+
   var scrollToDiv = (div) => {
     programmedScrolling = true;
     $.scrollTo($(div), 700, {
       onAfter: function() {
         programmedScrolling = false;
+        listen = true;
+        mobile_listen = true;
       }
     });
   }
@@ -43,19 +56,7 @@ $(function() {
   }
   changeActivePage(activePage, activeDiv);
   let navOpen = false;
-
-  var $mobile_pages;
-  var mobile_index;
-  var mobile_pagePos;
-  var mobile_up;
-  var mobile_listen;
-  var $pages;
-  var index;
-  var pagePos;
-  var down;
-  var listen;
   
-
   var isMobile = {
     Android: function() {
         return navigator.userAgent.match(/Android/i);
@@ -176,7 +177,7 @@ $(function() {
   $(".item").on('click', (event) => {
     programmedScrolling = true;
     console.log(event.target.id);
-    window.location.hash = "#";
+    // window.location.hash = "#";
     window.location.hash = "#" + event.target.id;
     closeNav();
     activePage = event.target.id.toUpperCase();
@@ -211,11 +212,6 @@ $(function() {
         mobile_listen = true;
         window.location.hash = "#" + pageId;
       });
-
-      // let pageId = $mobile_pages[mobile_index].id.split("-")[1];
-      // activePage = pageId.toUpperCase();
-      // changeActivePage(activePage, "#" + pageId);
-      // window.location.hash = "#" + pageId;
     }
   });
 
@@ -226,6 +222,7 @@ $(function() {
   listen = true;
 
   $('html, body').on('DOMMouseScroll mousewheel', function(e) {
+    console.log(listen);
     e.preventDefault();
 
     if(!listen) {
@@ -233,21 +230,24 @@ $(function() {
     }
     
     listen = false;
-    if (Math.abs(e.originalEvent.deltaY) < 13) { // not enough scroll
+    if (Math.abs(e.originalEvent.deltaY) < 20) { // not enough scroll
       listen = true;
       return false;
     }
+    console.log(e.originalEvent);
     down = e.originalEvent.deltaY > 0;
     index = Math.min(Math.max(0, down ? ++index : --index), $pages.length - 1);
+    console.log(index);
     pagePos = $pages.eq(index).offset().top;
 
-    $(this).stop().animate({scrollTop: pagePos}, 600, () => {
-      listen = true;
-    });
-
     let pageId = $pages[index].id.split("-")[1];
-    activePage = pageId.toUpperCase();
-    changeActivePage(activePage, "#" + pageId);
+    $(this).stop();
+    if (window.location.hash == ("#" + pageId)) {
+      console.log("SAME");
+      listen = true;
+      return;
+    }
+    window.location.hash = "#" + pageId;
   });
 
   setTimeout( () => {
