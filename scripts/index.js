@@ -176,9 +176,6 @@ $(function() {
 
   $(".item").on('click', (event) => {
     programmedScrolling = true;
-    // console.log(event.target.id);
-    // window.location.hash = "#";
-    // window.location.hash = "#" + event.target.id;
     if (history.pushState) {
       if (window.location.hash == ("#" + event.target.id)) {
         event.preventDefault();
@@ -186,8 +183,6 @@ $(function() {
       }
     }
     closeNav();
-    // activePage = event.target.id.toUpperCase();
-    // changeActivePage(activePage, "#" + event.target.id);
   });
 
   $mobile_pages = $(".full-screen");
@@ -220,12 +215,6 @@ $(function() {
         return;
       }
       window.location.hash = "#" + pageId;
-      // .animate({scrollTop: mobile_pagePos}, 600, () => {
-      //   mobile_listen = true;
-      //   // $("#" + pageId).click();
-      //   history.replaceState({}, '', ("#" + pageId));
-      //   // window.location.hash = "#" + pageId;
-      // });
     }
   });
 
