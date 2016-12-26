@@ -143,6 +143,8 @@ body {
   overflow-x: hidden; 
   padding-top: 80px;
   transition: 0.5s; 
+  display: flex;
+  flex-direction: column;
 }
 
 .sidenav a {
@@ -154,6 +156,60 @@ body {
   transition: 0.3s;
   text-align: left;
   cursor: pointer;
+}
+
+#sidebar-info {
+  color: #818181;
+  text-align: center;
+  text-decoration: none;
+  padding-bottom: 25px;
+}
+
+#connect-links {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+#connect-links a {
+  padding: 8px 8px 8px 8px;
+}
+
+#sidebar-links {
+  flex: 1;
+}
+
+#messenger-box {
+  background-color: transparent;
+  margin-right: 4px;
+}
+
+#messenger-sidebar {
+  display: block;
+  margin: auto;
+  width: 25px;
+  height: 25px;
+}
+
+#fb-box {
+  color: #3b5998;
+}
+
+#github-box {
+  color: rgb(179, 179, 179);
+}
+
+#linkedin-box {
+  color: #0077b5;
+}
+
+#connect-links a:hover {
+  color: #f1f1f1;
+}
+
+#sidebar-info span {
+  white-space: nowrap;
 }
 
 .sidenav a.active {
@@ -193,4 +249,5 @@ body {
   .sidenav a {font-size: 18px;}
   .next-arrow {font-size: 30px;}
   .next-arrow:hover {color: black;}
+  #sidebar-info {display: none;}
 }
