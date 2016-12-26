@@ -90,6 +90,9 @@ $(function() {
     $("#current-nav-page").text("MENU");
     document.getElementById("current-nav-page").style.color = "white";
     navOpen = true;
+    if (isMobile.any()) {
+      $("#current-nav-page").removeClass("hide");
+    }
   };
 
   var closeNav = () => {
@@ -97,6 +100,9 @@ $(function() {
     $("#current-nav-page").text(activePage);
     document.getElementById("current-nav-page").style.color = "black";
     navOpen = false;
+    if (isMobile.any()) {
+      $("#current-nav-page").addClass("hide");
+    }
   };
 
   var toggleNav = () => {
@@ -118,6 +124,12 @@ $(function() {
   }
 
   /* BEGINNING OF JQUERY/LOGIC */
+  if (isMobile.any()) {
+    $("#current-nav-page").addClass("hide");
+    if (isMobile.iOS()) {
+      $(".next-arrow").addClass("hide");
+    }
+  }
 
   window.onhashchange = function(e) {
     let activeDiv = window.location.hash;
