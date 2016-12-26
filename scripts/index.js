@@ -22,13 +22,45 @@ $(function() {
         mobile_listen = true;
       }
     });
+  };
+
+  var isScrolledIntoView = (elem) => {
+    var docViewTop = $(window).scrollTop();
+    var docViewMiddle = docViewTop + ($(window).height() / 2);
+
+    var elemTop = $(elem).offset().top;
+    // var elemBottom = elemTop + $(elem).height();
+
+    return elemTop <= docViewMiddle;
+
+    // return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
   }
 
   var changeActivePage = (newActivePage, newActiveDiv) => {
     $("#current-nav-page").text(newActivePage);
     $(".active").removeClass("active");
     $(newActiveDiv).addClass("active");
-  }
+  };
+
+  var setActivePageIOS = () => {
+    var fullScreenDivs = $(".full-screen");
+    var docViewTop = $(window).scrollTop();
+    var docViewMiddle = docViewTop + ($(window).height() / 2);
+    var elemTop;
+    var elemBottom;
+
+    $(".full-screen").each( (i) => {
+      elemTop = $(fullScreenDivs[i]).offset().top;
+      elemBottom = elemTop + $(fullScreenDivs[i]).height();
+      if (elemTop <= docViewMiddle && elemBottom > docViewMiddle) {
+        $(".active").removeClass("active");
+        var id = fullScreenDivs[i].id.split("-")[1];
+        $("#" + id).addClass("active");
+        history.replaceState({}, '', ("#" + id));
+        return false;
+      }
+    });
+  };
 
   let activeDiv = window.location.hash;
   let activePage;
@@ -93,6 +125,9 @@ $(function() {
     if (isMobile.any()) {
       $("#current-nav-page").removeClass("hide");
     }
+    if (isMobile.iOS()) {
+      setActivePageIOS();
+    }
   };
 
   var closeNav = () => {
@@ -112,16 +147,6 @@ $(function() {
       openNav();
     }
   };
-
-  var isScrolledIntoView = (elem) => {
-    var docViewTop = $(window).scrollTop();
-    var docViewBottom = docViewTop + $(window).height();
-
-    var elemTop = $(elem).offset().top;
-    var elemBottom = elemTop + $(elem).height();
-
-    return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
-  }
 
   /* BEGINNING OF JQUERY/LOGIC */
   if (isMobile.any()) {
