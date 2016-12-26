@@ -107,6 +107,16 @@ $(function() {
     }
   };
 
+  var isScrolledIntoView = (elem) => {
+    var docViewTop = $(window).scrollTop();
+    var docViewBottom = docViewTop + $(window).height();
+
+    var elemTop = $(elem).offset().top;
+    var elemBottom = elemTop + $(elem).height();
+
+    return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
+  }
+
   /* BEGINNING OF JQUERY/LOGIC */
 
   window.onhashchange = function(e) {
@@ -191,32 +201,37 @@ $(function() {
   mobile_up = 0;
   mobile_listen = true;
 
-  $('html, body').swipe({
-    swipe: function (event, direction, distance, duration, fingerCount, fingerData) {
-      event.preventDefault();
+  if (isMobile.iOS()) {
 
-      if(!mobile_listen || navOpen) {
-        return;
-      }
-      
-      mobile_listen = false;
-      if (duration <= 100 || !["down", "up"].includes(direction)) { // not enough swipe
-        mobile_listen = true;
-        return false;
-      }
-      mobile_up = direction != "down";
-      mobile_index = Math.min(Math.max(0, mobile_up ? ++mobile_index : --mobile_index), $mobile_pages.length - 1);
-      mobile_pagePos = $mobile_pages.eq(mobile_index).offset().top;
+  } else {
+    $('html, body').swipe({
+      swipe: function (event, direction, distance, duration, fingerCount, fingerData) {
+        event.preventDefault();
 
-      let pageId = $mobile_pages[mobile_index].id.split("-")[1];
-      $(this).stop();
-      if (window.location.hash == ("#" + pageId)) {
-        mobile_listen = true;
-        return;
+        if(!mobile_listen || navOpen) {
+          return;
+        }
+        
+        mobile_listen = false;
+        if (duration <= 100 || !["down", "up"].includes(direction)) { // not enough swipe
+          mobile_listen = true;
+          return false;
+        }
+        mobile_up = direction != "down";
+        mobile_index = Math.min(Math.max(0, mobile_up ? ++mobile_index : --mobile_index), $mobile_pages.length - 1);
+        mobile_pagePos = $mobile_pages.eq(mobile_index).offset().top;
+
+        let pageId = $mobile_pages[mobile_index].id.split("-")[1];
+        $(this).stop();
+        if (window.location.hash == ("#" + pageId)) {
+          mobile_listen = true;
+          return;
+        }
+        window.location.hash = "#" + pageId;
       }
-      window.location.hash = "#" + pageId;
-    }
-  });
+    });
+  }
+  
 
   $pages = $(".full-screen");
   index = 0;
