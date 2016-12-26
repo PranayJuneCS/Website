@@ -214,10 +214,18 @@ $(function() {
       mobile_pagePos = $mobile_pages.eq(mobile_index).offset().top;
 
       let pageId = $mobile_pages[mobile_index].id.split("-")[1];
-      $(this).stop().animate({scrollTop: mobile_pagePos}, 600, () => {
+      $(this).stop();
+      if (window.location.hash == ("#" + pageId)) {
         mobile_listen = true;
-        window.location.hash = "#" + pageId;
-      });
+        return;
+      }
+      window.location.hash = "#" + pageId;
+      // .animate({scrollTop: mobile_pagePos}, 600, () => {
+      //   mobile_listen = true;
+      //   // $("#" + pageId).click();
+      //   history.replaceState({}, '', ("#" + pageId));
+      //   // window.location.hash = "#" + pageId;
+      // });
     }
   });
 
@@ -239,16 +247,13 @@ $(function() {
       listen = true;
       return false;
     }
-    console.log(e.originalEvent);
     down = e.originalEvent.deltaY > 0;
     index = Math.min(Math.max(0, down ? ++index : --index), $pages.length - 1);
-    console.log(index);
     pagePos = $pages.eq(index).offset().top;
 
     let pageId = $pages[index].id.split("-")[1];
     $(this).stop();
     if (window.location.hash == ("#" + pageId)) {
-      console.log("SAME");
       listen = true;
       return;
     }
