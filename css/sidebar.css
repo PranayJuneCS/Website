@@ -1,0 +1,123 @@
+/* SIDEBAR STYLES */
+
+#logo-container {
+  height: 80px;
+  width: 80px;
+  background-color: transparent;
+  position: fixed;
+  top: 0%;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+}
+
+#logo-container img {
+  height: 100%;
+  display: block;
+  padding-right: 5px;
+  cursor: pointer;
+  z-index: 500;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+}
+
+.sidenav {
+  height: 100%;
+  position: fixed;
+  width: 0;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: black;
+  overflow-x: hidden; 
+  padding-top: 80px;
+  transition: 0.5s; 
+  display: flex;
+  flex-direction: column;
+}
+
+.sidenav a {
+  padding: 4px 8px 4px 24px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+  text-align: left;
+  cursor: pointer;
+}
+
+#sidebar-info {
+  color: #818181;
+  text-align: center;
+  text-decoration: none;
+  padding-bottom: 25px;
+}
+
+#connect-links {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+#connect-links a {
+  padding: 8px 8px 8px 8px;
+}
+
+#sidebar-links {
+  flex: 1;
+}
+
+#messenger-box {
+  background-color: transparent;
+  margin-right: 4px;
+}
+
+#messenger-sidebar {
+  display: block;
+  margin: auto;
+  width: 25px;
+  height: 25px;
+}
+
+#fb-box {
+  color: #3b5998;
+}
+
+#github-box {
+  color: rgb(179, 179, 179);
+}
+
+#linkedin-box {
+  color: #0077b5;
+}
+
+#connect-links a:hover {
+  color: #f1f1f1;
+}
+
+#sidebar-info span {
+  white-space: nowrap;
+}
+
+.sidenav a.active {
+  color: purple;
+}
+
+.sidenav a:hover, .offcanvas a:focus{
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+#current-nav-page {
+  font-weight: bold;
+}
+
+/* END SIDEBAR STYLES */

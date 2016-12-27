@@ -8,6 +8,7 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <script src="scripts/vendors/materialize.min.js"></script>
     <script src="scripts/vendors/touchSwipe.min.js"></script>
+    <script src="scripts/vendors/typed.min.js"></script>
     <script src="https://cdn.jsdelivr.net/jquery.scrollto/2.1.2/jquery.scrollTo.min.js"></script>
     <script type="text/javascript" src="slick/slick.min.js"></script>
     <link rel='stylesheet' href='css/materialize.min.css' />
@@ -15,6 +16,8 @@
     <link rel='stylesheet' href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
     <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
+    <link rel='stylesheet' href='css/typed.css' />
+    <link rel='stylesheet' href='css/sidebar.css' />
     <link rel='stylesheet' href='css/main.css' />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
@@ -29,14 +32,35 @@
       <h5 id='current-nav-page'>HOME</h5>
     </div>
     <div id="page-home" class="full-screen animated fadeIn">
-      <div id="thats-me" class="animated hide">
+      <!-- <div id="thats-me" class="animated hide">
         <img src="images/arrow.png">
-      </div>
-      <h1 id="call-me" class="animated hide">Pranay Kumar.</h1>
-      <a href="#about" class="next-arrow">
-        <i class="fa fa-chevron-circle-down"></i>
-      </a>
+      </div> -->
       <div class="hover-menu"></div>
+      <div id="home-container" class="container">
+          <div id="typed-strings">
+            <p>Hello! ^1000</p>
+            <p>My name is <br/><strong style="color: purple;">Pranay Kumar.</strong></p>
+          </div>
+          <h1 id="typed"></h1>
+          <hr width="100%" class="animated hide home-line-break" />
+            <div class="home-info animated hide">
+              <div class="who-am-i">
+                  <i class="home-icon fa fa-4x fa-futbol-o"></i>
+                  <h4 class="">Baller</h4>
+              </div>
+              <div class="who-am-i">
+                  <i class="home-icon fa fa-4x fa-code"></i>
+                  <h4 class="">Developer</h4>
+              </div>
+              <div class="who-am-i">
+                <img width="78px" class="home-icon" src="images/cal.png">
+                  <h4 class="">Student</h4>
+              </div>
+            </div>
+          <a href="#about" class="next-arrow">
+            <i class="fa fa-chevron-circle-down"></i>
+          </a>
+      </div>
     </div>
     <div id="page-about" class="full-screen">
       <h1>About</h1>

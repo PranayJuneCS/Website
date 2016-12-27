@@ -130,7 +130,8 @@ $(function() {
   var openNav = () => {
     document.getElementById("mySidenav").style.width = "250px";
     $("#current-nav-page").text("MENU");
-    document.getElementById("current-nav-page").style.color = "white";
+    $("#current-nav-page").addClass("color-white");
+    // document.getElementById("current-nav-page").style.color = "white";
     navOpen = true;
     if (isMobile.any()) {
       $("#current-nav-page").removeClass("hide");
@@ -143,7 +144,8 @@ $(function() {
   var closeNav = () => {
     document.getElementById("mySidenav").style.width = "0";
     $("#current-nav-page").text(activePage);
-    document.getElementById("current-nav-page").style.color = "black";
+    $("#current-nav-page").removeClass("color-white");
+    // document.getElementById("current-nav-page").style.color = "black";
     navOpen = false;
     if (isMobile.any()) {
       $("#current-nav-page").addClass("hide");
@@ -343,8 +345,20 @@ $(function() {
     window.location.hash = "#" + pageId;
   });
 
-  setTimeout( () => {
-    $("#call-me").removeClass("hide").addClass("slideInUp");
+  // setTimeout( () => {
+    // $("#call-me").removeClass("hide").addClass("slideInUp");
+    // document.body.requestFullscreen();
+    window.scrollTo(0,1);
+    $("#typed").typed({
+            stringsElement: $('#typed-strings'),
+            startDelay: 800,
+            typeSpeed: 50,
+            showCursor: false,
+            backSpeed: 30,
+            callback: () => {
+              $(".intro, .home-line-break, .home-info").removeClass("hide").addClass("fadeIn");
+            }
+        });
 
     window.addEventListener("orientationchange", function() {
       if (isMobile.any()) {
@@ -361,5 +375,5 @@ $(function() {
         $("#thats-me").removeClass("hide").addClass("bounceIn");
       }, 1000);
     }
-  }, 200);
+  // }, 200);
 });

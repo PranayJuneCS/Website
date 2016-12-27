@@ -1,6 +1,6 @@
 body {
   font-weight: 400;
-  color: #111;
+  color: white;
   min-height: 100%;
 }
 
@@ -10,25 +10,60 @@ body {
   position: relative;
   text-align: center;
   overflow: hidden;
-  border-bottom: 1px rgba(255, 0, 255, 0.35) solid;
+  background-color: gray;
+  /*border-bottom: 1px rgba(255, 0, 255, 0.35) solid;*/
 }
 
-.full-screen h1 {
-  font-size: 9vw;
-  height: 15vw;
-  position: absolute;
-  top: 50%;
-  margin-top: -7.5vw;
-  width: 100%;
+#home-container {
   text-align: center;
+  padding-top: 10vh;
+  display: flex;
+  flex-direction: column;
+  flex-flow: column;
+  height: 100%;
+}
+
+#home-container h1 {
+  font-size: 8vmax;
+  font-weight: bold;
+  font-family: "Optima";
+}
+
+.home-info {
+  /*padding-bottom: 20px;*/
+  display: flex;
+  /*flex: 1;*/
+  height: 50%;
+  /*align-items: center;*/
+  justify-content: center;
+  flex-direction: row;
+}
+
+.who-am-i {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 30px;
+}
+
+.home-icon {
+  /*font-size: 36px;*/
+  /*float: left;*/
+  /*padding: 50px;*/
+  padding-bottom: 20px;
+}
+
+.color-white {
+  color: white !important;
 }
 
 #page-stuff {
-  background-color: purple;
+  /*background-color: purple;*/
 }
 
 .materialbox-caption {
-  font: normal 100% "Roboto", 'adobe-garamond-pro', Georgia, "Times New Roman", serif !important;
+  font: normal 100% "Optima", "Roboto", 'adobe-garamond-pro', Georgia, "Times New Roman", serif !important;
 }
 
 .your-class {
@@ -45,10 +80,11 @@ body {
   background-color: white;
   margin-right: 5px;
   margin-left: 5px;
+  color: black;
 }
 
 #page-home {
-  background: url(../images/me5-min.jpg) no-repeat center center;
+  background: url(../images/background2.jpg) no-repeat center center;
   background-size: cover;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -135,142 +171,48 @@ body {
   z-index: 10;
 }
 
-#logo-container {
-  height: 80px;
-  width: 80px;
-  background-color: transparent;
-  position: fixed;
-  top: 0%;
-  z-index: 50;
-  display: flex;
-  align-items: center;
-}
-
-#logo-container img {
-  height: 100%;
-  display: block;
-  padding-right: 5px;
-  cursor: pointer;
-  z-index: 500;
-  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
-}
-
-.sidenav {
-  height: 100%;
-  position: fixed;
-  width: 0;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  background-color: black;
-  overflow-x: hidden; 
-  padding-top: 80px;
-  transition: 0.5s; 
-  display: flex;
-  flex-direction: column;
-}
-
-.sidenav a {
-  padding: 4px 8px 4px 24px;
-  text-decoration: none;
-  font-size: 25px;
-  color: #818181;
-  display: block;
-  transition: 0.3s;
-  text-align: left;
-  cursor: pointer;
-}
-
-#sidebar-info {
-  color: #818181;
-  text-align: center;
-  text-decoration: none;
-  padding-bottom: 25px;
-}
-
-#connect-links {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-}
-
-#connect-links a {
-  padding: 8px 8px 8px 8px;
-}
-
-#sidebar-links {
-  flex: 1;
-}
-
-#messenger-box {
-  background-color: transparent;
-  margin-right: 4px;
-}
-
-#messenger-sidebar {
-  display: block;
-  margin: auto;
-  width: 25px;
-  height: 25px;
-}
-
-#fb-box {
-  color: #3b5998;
-}
-
-#github-box {
-  color: rgb(179, 179, 179);
-}
-
-#linkedin-box {
-  color: #0077b5;
-}
-
-#connect-links a:hover {
-  color: #f1f1f1;
-}
-
-#sidebar-info span {
-  white-space: nowrap;
-}
-
-.sidenav a.active {
-  color: purple;
-}
-
-.sidenav a:hover, .offcanvas a:focus{
-  color: #f1f1f1;
-}
-
-.sidenav .closebtn {
-  position: absolute;
-  top: 0;
-  right: 25px;
-  font-size: 36px;
-  margin-left: 50px;
-}
-
-#current-nav-page {
-  font-weight: bold;
-}
 
 .next-arrow {
   position: absolute;
   font-size: 50px;
-  color: black;
+  color: white;
   left: 50%;
   transform: translateX(-50%);
-  bottom: 5%;
+  bottom: 3%;
+  color: purple;
 }
 
 .next-arrow:hover {
-  color: purple;
+  color: white;
+}
+
+/* PHONE SPECIFIC STYLES */
+
+@media handheld and (max-width: 800px) and (max-height: 450px) {
+  .home-info { flex-direction: row; }
+  .who-am-i { flex-direction: column; }
+}
+
+@media all and (max-width: 800px) and (min-height: 500px) {
+  .home-info { flex-direction: column; align-items: center; }
+  .who-am-i { flex-direction: row; padding-top: 15px; }
+  .home-icon { padding-bottom: 0; padding-right: 20px;}
+}
+
+@media all and (min-width: 800px) and (max-width: 1200px) {
+  .home-icon { padding-bottom: 70px; }
+  .who-am-i { padding-top: 30px;}
+}
+
+@media all and (min-width: 1201px) {
+  .who-am-i { padding-top: 70px; }
 }
 
 @media screen and (max-height: 450px) {
   .sidenav a {font-size: 18px;}
-  .next-arrow {font-size: 30px;}
-  .next-arrow:hover {color: black;}
+  .next-arrow {display: none;}
   #sidebar-info {display: none;}
+  #home-container { padding-top: 2.5vh; }
+  #home-container h1 { font-size: 5.5vmax; }
+  .who-am-i { padding-top: 2px; }
 }
