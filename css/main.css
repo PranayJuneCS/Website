@@ -24,6 +24,26 @@ body {
   text-align: center;
 }
 
+#page-stuff {
+  background-color: purple;
+}
+
+.your-class {
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30%;
+  text-align: center;
+  font-size: 30px;
+}
+
+.slider {
+  background-color: white;
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
 #page-home {
   background: url(../images/me5-min.jpg) no-repeat center center;
   background-size: cover;
