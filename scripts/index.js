@@ -66,26 +66,37 @@ $(function() {
   let activePage;
   switch (activeDiv) {
     case "#about":
+      mobile_index = 1;
+      index = 1;
       scrollToDiv("#page-about");
       activePage = "ABOUT";
       break;
     case "#projects":
+      mobile_index = 2;
+      index = 2;
       scrollToDiv("#page-projects");
       activePage = "PROJECTS";
       break;
     case "#stuff":
+      mobile_index = 3;
+      index = 3;
       scrollToDiv("#page-stuff");
       activePage = "STUFF";
       break;
     case "#contact":
+      mobile_index = 4;
+      index = 4;
       scrollToDiv("#page-contact");
       activePage = "CONTACT";
       break;
     default:
+      mobile_index = 0;
+      index = 0;
       scrollToDiv("#page-home");
       activePage = "HOME";
       activeDiv = "#home";
   }
+  console.log(index);
   changeActivePage(activePage, activeDiv);
   let navOpen = false;
   
@@ -233,7 +244,6 @@ $(function() {
   });
 
   $mobile_pages = $(".full-screen");
-  mobile_index = 0;
   mobile_pagePos = 0;
   mobile_up = 0;
   mobile_listen = true;
@@ -271,14 +281,13 @@ $(function() {
   
 
   $pages = $(".full-screen");
-  index = 0;
   pagePos = 0;
   down = 0;
   listen = true;
 
   $('html, body').on('DOMMouseScroll mousewheel', function(e) {
     e.preventDefault();
-
+    console.log(index);
     if(!listen || navOpen) {
       return;
     }
