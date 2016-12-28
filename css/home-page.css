@@ -35,6 +35,14 @@
   font-weight: bold;
 }
 
+.fa-code {
+  color: red;
+}
+
+.fa-futbol-o {
+  color: orange;
+}
+
 #page-home {
   background: url(../images/background2.jpg) no-repeat center center;
   background-size: cover;
