@@ -15,6 +15,10 @@
   color: purple;
 }
 
+.contact-icon {
+  color: #0084ff;
+}
+
 .arrow-color:hover, .contact-icon:hover {
   color: white;
 }
