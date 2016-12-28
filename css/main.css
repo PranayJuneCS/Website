@@ -1,8 +1,12 @@
+@import url('https://fonts.googleapis.com/css?family=Lato');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
+
 body {
   font-weight: 400;
   color: white;
   min-height: 100%;
-  font-family: "Optima";
+  font-family: "Lato", "Source Sans Pro", "Open Sans", "Optima", "Roboto";
 }
 
 .full-screen {
@@ -16,10 +20,6 @@ body {
 
 .color-white {
   color: white !important;
-}
-
-.materialbox-caption {
-  font: normal 100% "Optima", "Roboto", 'adobe-garamond-pro', Georgia, "Times New Roman", serif !important;
 }
 
 .your-class {
