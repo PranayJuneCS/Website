@@ -1,0 +1,41 @@
+#page-contact {
+  height: 50vh !important;
+  background-color: black;
+}
+
+#messenger-contact {
+  width: 30px;
+}
+
+#yep {
+  font-size: 7vmax;
+}
+
+.arrow-color {
+  color: purple;
+}
+
+.arrow-color:hover, .contact-icon:hover {
+  color: white;
+}
+
+.bottom-page {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 1%;
+  width: 100%;
+  color: purple;
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+}
+
+.bottom-page a {
+  flex: 1;
+}
+
+.img-circle {
+  border-radius: 50%;
+  padding-top: 5px;
+}

@@ -15,7 +15,7 @@ $(function() {
 
   var scrollToDiv = (div) => {
     programmedScrolling = true;
-    $.scrollTo($(div), 700, {
+    $.scrollTo($(div), 800, {
       onAfter: function() {
         programmedScrolling = false;
         listen = true;
@@ -363,5 +363,9 @@ $(function() {
     setTimeout( () => {
       $("#thats-me").removeClass("hide").addClass("bounceIn");
     }, 1000);
+  }
+
+  if (isMobile.any()) {
+    $('a#mail-to').attr('href', 'mailto:pkr2100@gmail.com');
   }
 });
