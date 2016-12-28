@@ -27,13 +27,8 @@ $(function() {
   var isScrolledIntoView = (elem) => {
     var docViewTop = $(window).scrollTop();
     var docViewMiddle = docViewTop + ($(window).height() / 2);
-
     var elemTop = $(elem).offset().top;
-    // var elemBottom = elemTop + $(elem).height();
-
     return elemTop <= docViewMiddle;
-
-    // return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
   }
 
   var changeActivePage = (newActivePage, newActiveDiv) => {
@@ -131,7 +126,6 @@ $(function() {
     document.getElementById("mySidenav").style.width = "250px";
     $("#current-nav-page").text("MENU");
     $("#current-nav-page").addClass("color-white");
-    // document.getElementById("current-nav-page").style.color = "white";
     navOpen = true;
     if (isMobile.any()) {
       $("#current-nav-page").removeClass("hide");
@@ -145,7 +139,6 @@ $(function() {
     document.getElementById("mySidenav").style.width = "0";
     $("#current-nav-page").text(activePage);
     $("#current-nav-page").removeClass("color-white");
-    // document.getElementById("current-nav-page").style.color = "black";
     navOpen = false;
     if (isMobile.any()) {
       $("#current-nav-page").addClass("hide");
@@ -345,35 +338,30 @@ $(function() {
     window.location.hash = "#" + pageId;
   });
 
-  // setTimeout( () => {
-    // $("#call-me").removeClass("hide").addClass("slideInUp");
-    // document.body.requestFullscreen();
-    window.scrollTo(0,1);
-    $("#typed").typed({
-            stringsElement: $('#typed-strings'),
-            startDelay: 800,
-            typeSpeed: 50,
-            showCursor: false,
-            backSpeed: 30,
-            callback: () => {
-              $(".intro, .home-line-break, .home-info").removeClass("hide").addClass("fadeIn");
-            }
-        });
-
-    window.addEventListener("orientationchange", function() {
-      if (isMobile.any()) {
-          if (window.orientation == 0) {
-          $("#thats-me").removeClass("hide").addClass("bounceIn");
-        } else {
-          $("#thats-me").removeClass("bounceIn").addClass("hide");
-        }
-      }
-    }, false);
-
-    if (!isMobile.any() || isPortrait()) {
-      setTimeout( () => {
-        $("#thats-me").removeClass("hide").addClass("bounceIn");
-      }, 1000);
+  $("#typed").typed({
+    stringsElement: $('#typed-strings'),
+    startDelay: 800,
+    typeSpeed: 50,
+    showCursor: false,
+    backSpeed: 30,
+    callback: () => {
+      $(".intro, .home-line-break, .home-info").removeClass("hide").addClass("fadeIn");
     }
-  // }, 200);
+  });
+
+  window.addEventListener("orientationchange", function() {
+    if (isMobile.any()) {
+        if (window.orientation == 0) {
+        $("#thats-me").removeClass("hide").addClass("bounceIn");
+      } else {
+        $("#thats-me").removeClass("bounceIn").addClass("hide");
+      }
+    }
+  }, false);
+
+  if (!isMobile.any() || isPortrait()) {
+    setTimeout( () => {
+      $("#thats-me").removeClass("hide").addClass("bounceIn");
+    }, 1000);
+  }
 });

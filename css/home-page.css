@@ -1,0 +1,45 @@
+#home-container {
+  text-align: center;
+  padding-top: 10vh;
+  display: flex;
+  flex-direction: column;
+  flex-flow: column;
+  height: 100%;
+}
+
+#home-container h1 {
+  font-size: 8vmax;
+  font-weight: bold;
+  font-family: "Optima";
+}
+
+.home-info {
+  display: flex;
+  height: 50%;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.who-am-i {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 30px;
+}
+
+.home-icon {
+  padding-bottom: 20px;
+}
+
+.desc {
+  font-weight: bold;
+}
+
+#page-home {
+  background: url(../images/background2.jpg) no-repeat center center;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+}
