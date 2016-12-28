@@ -365,7 +365,7 @@ $(function() {
     }, 1000);
   }
 
-  if (isMobile.any()) {
+  if (isMobile.any() || isMobile.isPad()) {
     $('a#mail-to').attr('href', 'mailto:pkr2100@gmail.com');
   }
 });
