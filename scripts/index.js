@@ -349,6 +349,14 @@ $(function() {
     window.location.hash = "#" + pageId;
   });
 
+  var $toastContent = $('<span>For the smoothest experience, consider using <a target="_blank" href="https://www.google.com/chrome/">Google Chrome</a>.</span>');
+  if (!isMobile.any() && !isMobile.isPad() && !(!!window.chrome && !!window.chrome.webstore)) {
+    // only show toast if not mobile, iPad, or Chrome, AND user is on home page
+    if (index == 0) {
+      Materialize.toast($toastContent, 3000, 'rounded');
+    }
+  }
+
   $("#typed").typed({
     stringsElement: $('#typed-strings'),
     startDelay: 800,
