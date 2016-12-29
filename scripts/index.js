@@ -139,6 +139,11 @@ $(function() {
   $(".sidebar-link").click((e) => {
     let href = $(e.currentTarget).attr('href');
     refreshIndex(href.split("-")[1].toUpperCase());
+    if (isMobile.any() || isMobile.isPad()) {
+      if (navOpen) {
+        closeNav();
+      }
+    }
   });
 
   /* END SIDEBAR JQUERY */
