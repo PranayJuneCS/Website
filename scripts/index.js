@@ -57,41 +57,41 @@ $(function() {
     });
   };
 
-  let activeDiv = window.location.hash;
-  let activePage;
-  switch (activeDiv) {
-    case "#about":
-      mobile_index = 1;
-      index = 1;
-      scrollToDiv("#page-about");
-      activePage = "ABOUT";
-      break;
-    case "#projects":
-      mobile_index = 2;
-      index = 2;
-      scrollToDiv("#page-projects");
-      activePage = "PROJECTS";
-      break;
-    case "#stuff":
-      mobile_index = 3;
-      index = 3;
-      scrollToDiv("#page-stuff");
-      activePage = "STUFF";
-      break;
-    case "#contact":
-      mobile_index = 4;
-      index = 4;
-      scrollToDiv("#page-contact");
-      activePage = "CONTACT";
-      break;
-    default:
-      mobile_index = 0;
-      index = 0;
-      scrollToDiv("#page-home");
-      activePage = "HOME";
-      activeDiv = "#home";
-  }
-  changeActivePage(activePage, activeDiv);
+  // let activeDiv = window.location.hash;
+  // let activePage;
+  // switch (activeDiv) {
+  //   case "#about":
+  //     mobile_index = 1;
+  //     index = 1;
+  //     scrollToDiv("#page-about");
+  //     activePage = "ABOUT";
+  //     break;
+  //   case "#projects":
+  //     mobile_index = 2;
+  //     index = 2;
+  //     scrollToDiv("#page-projects");
+  //     activePage = "PROJECTS";
+  //     break;
+  //   case "#stuff":
+  //     mobile_index = 3;
+  //     index = 3;
+  //     scrollToDiv("#page-stuff");
+  //     activePage = "STUFF";
+  //     break;
+  //   case "#contact":
+  //     mobile_index = 4;
+  //     index = 4;
+  //     scrollToDiv("#page-contact");
+  //     activePage = "CONTACT";
+  //     break;
+  //   default:
+  //     mobile_index = 0;
+  //     index = 0;
+  //     scrollToDiv("#page-home");
+  //     activePage = "HOME";
+  //     activeDiv = "#home";
+  // }
+  // changeActivePage(activePage, activeDiv);
   let navOpen = false;
   
   var isMobile = {
@@ -196,42 +196,42 @@ $(function() {
     }
   }
 
-  window.onhashchange = function(e) {
-    let activeDiv = window.location.hash;
-    switch (activeDiv) {
-      case "#about":
-        mobile_index = 1;
-        index = 1;
-        scrollToDiv("#page-about");
-        activePage = "ABOUT";
-        break;
-      case "#projects":
-        mobile_index = 2;
-        index = 2;
-        scrollToDiv("#page-projects");
-        activePage = "PROJECTS";
-        break;
-      case "#stuff":
-        mobile_index = 3;
-        index = 3;
-        scrollToDiv("#page-stuff");
-        activePage = "STUFF";
-        break;
-      case "#contact":
-        mobile_index = 4;
-        index = 4;
-        scrollToDiv("#page-contact");
-        activePage = "CONTACT";
-        break;
-      default:
-        mobile_index = 0;
-        index = 0;
-        scrollToDiv("#page-home");
-        activePage = "HOME";
-        activeDiv = "#home";
-    }
-    changeActivePage(activePage, activeDiv);
-  }
+  // window.onhashchange = function(e) {
+  //   let activeDiv = window.location.hash;
+  //   switch (activeDiv) {
+  //     case "#about":
+  //       mobile_index = 1;
+  //       index = 1;
+  //       scrollToDiv("#page-about");
+  //       activePage = "ABOUT";
+  //       break;
+  //     case "#projects":
+  //       mobile_index = 2;
+  //       index = 2;
+  //       scrollToDiv("#page-projects");
+  //       activePage = "PROJECTS";
+  //       break;
+  //     case "#stuff":
+  //       mobile_index = 3;
+  //       index = 3;
+  //       scrollToDiv("#page-stuff");
+  //       activePage = "STUFF";
+  //       break;
+  //     case "#contact":
+  //       mobile_index = 4;
+  //       index = 4;
+  //       scrollToDiv("#page-contact");
+  //       activePage = "CONTACT";
+  //       break;
+  //     default:
+  //       mobile_index = 0;
+  //       index = 0;
+  //       scrollToDiv("#page-home");
+  //       activePage = "HOME";
+  //       activeDiv = "#home";
+  //   }
+  //   changeActivePage(activePage, activeDiv);
+  // }
 
   $("#logo-container img, .hover-menu").mouseover(() => {
     if (!isMobile.any()) {
@@ -313,6 +313,7 @@ $(function() {
   pagePos = 0;
   down = 0;
   listen = true;
+  // index = 0;
 
   var ar = new Array(32, 33, 34, 35, 36, 37, 38, 39, 40);
 
@@ -325,37 +326,43 @@ $(function() {
     return true;
   });
 
-  $('html, body').on('DOMMouseScroll mousewheel', function(e) {
-    e.preventDefault();
-    if(!listen || navOpen) {
-      return;
-    }
+  // $('html, body').on('DOMMouseScroll mousewheel', function(e) {
+  //   e.preventDefault();
+  //   if(!listen || navOpen) {
+  //     return;
+  //   }
     
-    listen = false;
-    if (Math.abs(e.originalEvent.deltaY) < 20) { // not enough scroll
-      listen = true;
-      return false;
-    }
-    down = e.originalEvent.deltaY > 0;
-    index = Math.min(Math.max(0, down ? ++index : --index), $pages.length - 1);
-    pagePos = $pages.eq(index).offset().top;
+  //   listen = false;
+  //   if (Math.abs(e.originalEvent.deltaY) < 20) { // not enough scroll
+  //     listen = true;
+  //     return false;
+  //   }
+  //   down = e.originalEvent.deltaY > 0;
+  //   index = Math.min(Math.max(0, down ? ++index : --index), $pages.length - 1);
+  //   pagePos = $pages.eq(index).offset().top;
 
-    let pageId = $pages[index].id.split("-")[1];
-    $(this).stop();
-    if (window.location.hash == ("#" + pageId)) {
-      listen = true;
-      return;
-    }
-    window.location.hash = "#" + pageId;
-  });
+  //   let pageId = $pages[index].id.split("-")[1];
+  //   $(this).stop();
+    // if (window.location.hash == ("#" + pageId)) {
+    //   listen = true;
+    //   return;
+    // }
+    // scrollToDiv(pageId);
+    // window.location.hash = "#" + pageId;
+  // });
 
   var $toastContent = $('<span>For the smoothest experience, consider using <a target="_blank" href="https://www.google.com/chrome/">Google Chrome</a>.</span>');
   if (!isMobile.any() && !isMobile.isPad() && !(!!window.chrome && !!window.chrome.webstore)) {
     // only show toast if not mobile, iPad, or Chrome, AND user is on home page
+    console.log($(".active"));
     if (index == 0) {
       Materialize.toast($toastContent, 3000, 'rounded');
     }
   }
+
+  $('.scrollspy').scrollSpy({
+    scrollOffset: 1
+  });
 
   $("#typed").typed({
     stringsElement: $('#typed-strings'),
