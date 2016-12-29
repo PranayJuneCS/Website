@@ -35,10 +35,7 @@
       <h5 id='current-nav-page'>HOME</h5>
     </div>
     <span id="menu-indicator">MENU</span>
-    <div id="page-home" class="full-screen animated fadeIn">
-      <!-- <div id="thats-me" class="animated hide">
-        <img src="images/arrow.png">
-      </div> -->
+    <div id="page-home" class="full-screen animated fadeIn scrollspy">
       <div class="hover-menu"></div>
       <div id="home-container" class="container">
           <div id="typed-strings">
@@ -61,27 +58,27 @@
                   <h4 class="desc">STUDENT</h4>
               </div>
             </div>
-          <a href="#about" class="next-arrow">
+          <a href="#page-about" class="next-arrow">
             <i class="fa fa-chevron-circle-down"></i>
           </a>
       </div>
     </div>
-    <div id="page-about" class="full-screen">
+    <div id="page-about" class="full-screen scrollspy">
       <h1>About</h1>
       <img src="images/logo.png" data-caption="My Logo." width="650" class="materialboxed">
-      <a href="#projects" class="next-arrow">
+      <a href="#page-projects" class="next-arrow">
         <i class="fa fa-chevron-circle-down"></i>
       </a>
       <div class="hover-menu"></div>
     </div>
-    <div id="page-projects" class="full-screen">
+    <div id="page-projects" class="full-screen scrollspy">
       <h1>Projects</h1>
-      <a href="#stuff" class="next-arrow">
+      <a href="#page-stuff" class="next-arrow">
         <i class="fa fa-chevron-circle-down"></i>
       </a>
       <div class="hover-menu"></div>
     </div>
-    <div id="page-stuff" class="full-screen">
+    <div id="page-stuff" class="full-screen scrollspy">
       <h1>Stuff</h1>
       <div class="your-class">
         <div class="slider">1</div>
@@ -94,7 +91,7 @@
         <div class="slider">8</div>
         <div class="slider">9</div>
       </div>
-      <a href="#contact" class="next-arrow">
+      <a href="" class="go-to-contact">
         <i class="fa fa-chevron-circle-down"></i>
       </a>
       <div class="hover-menu"></div>
@@ -113,7 +110,7 @@
         <a class="contact-icon" target="_blank" href="https://fb.me/pranay.kumar.944">
           <i class="fa fa-2x fa-facebook-official"></i>
         </a>
-        <a href="#home" class="col s12 pull-s3 arrow-color">
+        <a href="#page-home" class="col s12 pull-s3 arrow-color">
           <i class="fa fa-3x fa-chevron-circle-up"></i>
         </a>
         <a class="contact-icon" target="_blank" href="https://github.com/PranayJuneCS/">
@@ -133,11 +130,10 @@
     <div id="mySidenav" class="sidenav">
       <div id="sidebar-links">
         <a href="javascript:void(0)" class="closebtn">&times;</a>
-        <a id="home" class="item active" href="#home">HOME</a>
-        <a id="about" class="item" href="#about">ABOUT</a>
-        <a id="projects" class="item" href="#projects">PROJECTS</a>
-        <a id="stuff" class="item" href="#stuff">STUFF</a>
-        <a id="contact" class="item" href="#contact">CONTACT</a>
+        <a class="sidebar-link" href="#page-home">HOME</a>
+        <a class="sidebar-link" href="#page-about">ABOUT</a>
+        <a class="sidebar-link" href="#page-projects">PROJECTS</a>
+        <a class="sidebar-link" href="#page-stuff">STUFF</a>
       </div>
       <div id="sidebar-info">
         <div id="connect-links">
