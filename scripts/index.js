@@ -1,7 +1,5 @@
 $(function() {
 
-  let programmedScrolling = false;
-
   var $mobile_pages;
   var mobile_index;
   var mobile_pagePos;
@@ -13,12 +11,8 @@ $(function() {
   var down;
   var listen;
 
-  window.onbeforeunload = function () {
-    window.scrollTo(0, 0);
-  }
+  /* HELPER METHODS */
 
-  let navOpen = false;
-  
   var isMobile = {
     Android: function() {
         return navigator.userAgent.match(/Android/i);
@@ -47,10 +41,13 @@ $(function() {
     return window.innerHeight > window.innerWidth;
   };
 
+  /* END HELPER METHODS */
+
+  /* SIDENAV METHODS */
+
   var openNav = () => {
     document.getElementById("mySidenav").style.width = "250px";
     $("#current-nav-page").text("MENU");
-    $("#current-nav-page").addClass("color-white");
     navOpen = true;
     if (isMobile.any()) {
       $("#current-nav-page").removeClass("hide");
@@ -62,9 +59,7 @@ $(function() {
 
   var closeNav = () => {
     document.getElementById("mySidenav").style.width = "0";
-    console.log("AH");
     $("#current-nav-page").text($(".sidenav a.active").text());
-    $("#current-nav-page").removeClass("color-white");
     navOpen = false;
     if (isMobile.any()) {
       $("#current-nav-page").addClass("hide");
@@ -78,6 +73,10 @@ $(function() {
       openNav();
     }
   };
+
+  /* END SIDENAV METHODS */
+
+  /* SCROLL METHODS */
 
   var refreshIndex = (page) => {
     switch (page) {
@@ -103,48 +102,11 @@ $(function() {
     }
   }
 
-  /* BEGINNING OF JQUERY/LOGIC */
+  /* END SCROLL METHODS */
 
-  $('.your-class').slick({
-    infinite: true,
-    slidesToShow: 3,
-    slidesToScroll: 3,
-    dots: true,
-    responsive: [
-    {
-      breakpoint: 1024,
-      settings: {
-        slidesToShow: 3,
-        slidesToScroll: 3,
-        infinite: true,
-        dots: true
-      }
-    },
-    {
-      breakpoint: 600,
-      settings: {
-        slidesToShow: 2,
-        slidesToScroll: 2,
-        dots: false
-      }
-    },
-    {
-      breakpoint: 480,
-      settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        dots: false
-      }
-    }
-  ]
-  });
+  /************** BEGIN LOGIC **************/
 
-  if (isMobile.any()) {
-    $("#current-nav-page").addClass("hide");
-    if (isMobile.iOS()) {
-      $(".next-arrow").addClass("hide");
-    }
-  }
+  /* SIDEBAR JQUERY */
 
   $("#logo-container img, .hover-menu").mouseover(() => {
     if (!isMobile.any()) {
@@ -179,11 +141,43 @@ $(function() {
     refreshIndex(href.split("-")[1].toUpperCase());
   });
 
+  /* END SIDEBAR JQUERY */
+
+  /* ARROW JQUERY */
+
   $(".go-to-contact").click((e) => {
     e.preventDefault();
     $.scrollTo($("#page-contact"), 600);
     index += 1;
     mobile_index += 1;
+  });
+
+  $("a.next-arrow").click((e) => {
+    let href = $(e.currentTarget).attr('href');
+    $("#current-nav-page").text(href.split("-")[1].toUpperCase());
+    index += 1;
+    mobile_index += 1;
+  });
+
+  $(".arrow-color").click((e) => {
+    index = 0;
+    mobile_index = 0;
+    $("#current-nav-page").text("HOME");
+  });
+
+  /* END ARROW JQUERY */
+
+  /* SCROLL JQUERY */
+
+  var ar = new Array(32, 33, 34, 35, 36, 37, 38, 39, 40);
+
+  $(document).keydown(function (e) {
+    var key = e.which;
+    if ($.inArray(key, ar) > -1) {
+      e.preventDefault();
+      return false;
+    }
+    return true;
   });
 
   // $mobile_pages = $(".full-screen");
@@ -228,17 +222,6 @@ $(function() {
   listen = true;
   index = 0;
 
-  var ar = new Array(32, 33, 34, 35, 36, 37, 38, 39, 40);
-
-  $(document).keydown(function (e) {
-    var key = e.which;
-    if ($.inArray(key, ar) > -1) {
-      e.preventDefault();
-      return false;
-    }
-    return true;
-  });
-
 
   $('html, body').on('DOMMouseScroll mousewheel', function(e) {
     e.preventDefault();
@@ -269,6 +252,69 @@ $(function() {
     });
   });
 
+  /* END SCROLL JQUERY */
+
+  /* SPECIAL MOBILE/iOS CASES */
+
+  if (isMobile.any() || isMobile.isPad()) {
+    $('a#mail-to').attr('href', 'mailto:pkr2100@gmail.com');
+  }
+
+  if (isMobile.any()) {
+    $("#current-nav-page").addClass("hide");
+    if (isMobile.iOS()) {
+      $(".next-arrow").addClass("hide");
+    }
+  }
+
+  /* END SPECIAL CASES */
+
+  /* SLICK SLIDER JQUERY */
+  
+  $('.your-class').slick({
+    infinite: true,
+    slidesToShow: 3,
+    slidesToScroll: 3,
+    dots: true,
+    responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 3,
+        infinite: true,
+        dots: true
+      }
+    },
+    {
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2,
+        dots: false
+      }
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        dots: false
+      }
+    }
+  ]
+  });
+
+  /* END SLICK SLIDER JQUERY */
+
+  /* INITIALIZATION/EXECUTION */
+
+  window.onbeforeunload = function () {
+    window.scrollTo(0, 0);
+  }
+
+  let navOpen = false;
+
   var $toastContent = $('<span>For the smoothest experience, consider using <a target="_blank" href="https://www.google.com/chrome/">Google Chrome</a>.</span>');
   if (!isMobile.any() && !isMobile.isPad() && !(!!window.chrome && !!window.chrome.webstore)) {
     // only show toast if not mobile, iPad, or Chrome, AND user is on home page
@@ -292,37 +338,4 @@ $(function() {
     }
   });
 
-  $("a.next-arrow").click((e) => {
-    let href = $(e.currentTarget).attr('href');
-    $("#current-nav-page").text(href.split("-")[1].toUpperCase());
-    index += 1;
-    mobile_index += 1;
-  });
-
-  $(".arrow-color").click((e) => {
-    index = 0;
-    mobile_index = 0;
-    $("#current-nav-page").text("HOME");
-  });
-
-  // window.addEventListener("orientationchange", function() {
-  //   if (isMobile.any()) {
-  //       if (window.orientation == 0) {
-  //       $("#thats-me").removeClass("hide").addClass("bounceIn");
-  //     } else {
-  //       $("#thats-me").removeClass("bounceIn").addClass("hide");
-  //     }
-  //   }
-  // }, false);
-  
-
-  // if (!isMobile.any() || isPortrait()) {
-  //   setTimeout( () => {
-  //     $("#thats-me").removeClass("hide").addClass("bounceIn");
-  //   }, 1000);
-  // }
-
-  if (isMobile.any() || isMobile.isPad()) {
-    $('a#mail-to').attr('href', 'mailto:pkr2100@gmail.com');
-  }
 });
