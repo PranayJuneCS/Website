@@ -20,6 +20,15 @@
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
 }
 
+#menu-indicator {
+  position: fixed;
+  color: white;
+  display: block;
+  z-index: 1;
+  top: 65px;
+  left: 20px;
+}
+
 .sidenav {
   height: 100%;
   position: fixed;
