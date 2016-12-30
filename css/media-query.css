@@ -25,7 +25,8 @@
 
 @media screen and (max-height: 450px) {
   .sidenav a {font-size: 21px;}
-  .next-arrow {display: none;}
+  .next-arrow {font-size: 23px !important;}
+  .go-to-contact {font-size: 23px !important;}
   #home-container { padding-top: 2.5vh; }
   #home-container h1 { font-size: 5.5vmax; }
   .who-am-i { padding-top: 2px; }
