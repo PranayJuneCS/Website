@@ -29,6 +29,7 @@
   .go-to-contact {font-size: 23px !important;}
   #home-container { padding-top: 2.5vh; }
   #home-container h1 { font-size: 5.5vmax; }
+  .home-icon { width: 70px !important;}
   .who-am-i { padding-top: 2px; }
   #yep { font-size: 6vmax !important; margin-top: 8px !important; }
   .img-circle { display: none; }

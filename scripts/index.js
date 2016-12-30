@@ -164,6 +164,15 @@ $(function() {
     var key = e.which;
     if ($.inArray(key, ar) > -1) {
       e.preventDefault();
+      if (key == 32) { // space bar
+        if (!navOpen) {
+          if (index < 3) {
+            $($(".next-arrow")[index]).click();
+          } else {
+            $(".go-to-contact").click();
+          }
+        }
+      }
       return false;
     }
     return true;
