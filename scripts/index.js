@@ -267,9 +267,6 @@ $(function() {
 
   if (isMobile.any()) {
     $("#current-nav-page").addClass("hide");
-    if (isMobile.iOS()) {
-      $(".next-arrow").addClass("hide");
-    }
   }
 
   /* END SPECIAL CASES */
