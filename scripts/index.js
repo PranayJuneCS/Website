@@ -1,10 +1,5 @@
 $(function() {
 
-  var $mobile_pages;
-  var mobile_index;
-  var mobile_pagePos;
-  var mobile_up;
-  var mobile_listen;
   var $pages;
   var index;
   var pagePos;
@@ -52,9 +47,6 @@ $(function() {
     if (isMobile.any()) {
       $("#current-nav-page").removeClass("hide");
     }
-    if (isMobile.iOS()) {
-      setActivePageIOS();
-    }
   };
 
   var closeNav = () => {
@@ -82,23 +74,18 @@ $(function() {
     switch (page) {
       case "HOME":
         index = 0;
-        mobile_index = 0;
         break;
       case "ABOUT":
         index = 1;
-        mobile_index = 1;
         break;
       case "PROJECTS":
         index = 2;
-        mobile_index = 2;
         break;
       case "STUFF":
         index = 3;
-        mobile_index = 3;
         break;
       default:
         index = 0;
-        mobile_index = 0;
     }
   }
 
@@ -154,19 +141,16 @@ $(function() {
     e.preventDefault();
     $.scrollTo($("#page-contact"), 600);
     index += 1;
-    mobile_index += 1;
   });
 
   $("a.next-arrow").click((e) => {
     let href = $(e.currentTarget).attr('href');
     $("#current-nav-page").text(href.split("-")[1].toUpperCase());
     index += 1;
-    mobile_index += 1;
   });
 
   $(".arrow-color").click((e) => {
     index = 0;
-    mobile_index = 0;
     $("#current-nav-page").text("HOME");
   });
 
@@ -185,48 +169,11 @@ $(function() {
     return true;
   });
 
-  // $mobile_pages = $(".full-screen");
-  // mobile_pagePos = 0;
-  // mobile_up = 0;
-  // mobile_listen = true;
-
-  // if (isMobile.iOS()) {
-
-  // } else {
-  //   $('html, body').swipe({
-  //     swipe: function (event, direction, distance, duration, fingerCount, fingerData) {
-  //       event.preventDefault();
-
-  //       if(!mobile_listen || navOpen) {
-  //         return;
-  //       }
-        
-  //       mobile_listen = false;
-  //       if (duration <= 100 || !["down", "up"].includes(direction)) { // not enough swipe
-  //         mobile_listen = true;
-  //         return false;
-  //       }
-  //       mobile_up = direction != "down";
-  //       mobile_index = Math.min(Math.max(0, mobile_up ? ++mobile_index : --mobile_index), $mobile_pages.length - 1);
-  //       mobile_pagePos = $mobile_pages.eq(mobile_index).offset().top;
-
-  //       let pageId = $mobile_pages[mobile_index].id.split("-")[1];
-  //       $(this).stop();
-  //       if (window.location.hash == ("#" + pageId)) {
-  //         mobile_listen = true;
-  //         return;
-  //       }
-  //       window.location.hash = "#" + pageId;
-  //     }
-  //   });
-  // }
-
   $pages = $(".full-screen");
   pagePos = 0;
   down = 0;
   listen = true;
   index = 0;
-
 
   $('html, body').on('DOMMouseScroll mousewheel', function(e) {
     e.preventDefault();
@@ -249,7 +196,6 @@ $(function() {
     $.scrollTo($("#" + pageId), 800, {
       onAfter: function() {
         listen = true;
-        mobile_listen = true;
         if (!pageId.match(/contact/i)) {
           $("#current-nav-page").text(pageId.split("-")[1].toUpperCase());
         }
@@ -318,11 +264,9 @@ $(function() {
   let navOpen = false;
 
   var $toastContent = $('<span>For the smoothest experience, consider using <a target="_blank" href="https://www.google.com/chrome/">Google Chrome</a>.</span>');
-  if (!isMobile.any() && !isMobile.isPad() && !(!!window.chrome && !!window.chrome.webstore)) {
-    // only show toast if not mobile, iPad, or Chrome, AND user is on home page
-    if (index == 0) {
-      Materialize.toast($toastContent, 3000, 'rounded');
-    }
+  if (!isMobile.any() && !isMobile.isPad() && (false || !!document.documentMode)) {
+    // only show toast if user is on IE, and not on mobile or iPad
+    Materialize.toast($toastContent, 3000, 'rounded');
   }
 
   $('.scrollspy').scrollSpy({
