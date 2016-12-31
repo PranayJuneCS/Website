@@ -1,0 +1,19 @@
+.headshot {
+  width: 100%;
+  border-radius: 100px;
+}
+
+.headshot-link {
+  display: inline-block;
+  width: 200px;
+  padding: 2px;
+  background-color: #fff;
+  line-height: 0;
+  border-radius: 100px;
+  transition: background-color 0.5s ease-out;
+}
+
+.headshot-link:hover {
+  background-color: purple;
+  transition: none;
+}

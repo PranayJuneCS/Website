@@ -187,7 +187,7 @@ $(function() {
   $('html, body').on('DOMMouseScroll mousewheel', function(e) {
     e.preventDefault();
 
-    if(!listen || navOpen) {
+    if (!listen || navOpen || ($("#lightboxOverlay").css('display') != "none")) {
       return;
     }
     

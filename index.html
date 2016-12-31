@@ -8,16 +8,19 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <script src="scripts/vendors/materialize.min.js"></script>
     <script src="scripts/vendors/typed.min.js"></script>
+    <script src="scripts/vendors/lightbox.min.js"></script>
     <script src="https://cdn.jsdelivr.net/jquery.scrollto/2.1.2/jquery.scrollTo.min.js"></script>
     <script type="text/javascript" src="slick/slick.min.js"></script>
     <link rel='stylesheet' href='css/materialize.min.css' />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <link rel='stylesheet' href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="css/lightbox.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
     <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
     <link rel='stylesheet' href='css/sidebar.css' />
     <link rel='stylesheet' href='css/home-page.css' />
+    <link rel='stylesheet' href='css/about-page.css' />
     <link rel='stylesheet' href='css/contact-page.css' />
     <link rel='stylesheet' href='css/media-query.css' />
     <link rel='stylesheet' href='css/main.css' />
@@ -64,7 +67,11 @@
     </div>
     <div id="page-about" class="full-screen scrollspy">
       <h1>About</h1>
-      <img src="images/logo.png" data-caption="My Logo." width="650" class="materialboxed">
+      <!-- <div class=""> -->
+      <a class="headshot-link" href="images/headshot.png" data-title="Me." data-lightbox="example-1">
+        <img class="headshot" src="images/headshot.png" alt="Me.">
+      </a>
+      <!-- </div> -->
       <a href="#page-projects" class="next-arrow">
         <i class="fa fa-chevron-circle-down"></i>
       </a>

@@ -4,6 +4,7 @@
   .home-info { flex-direction: row; }
   .who-am-i { flex-direction: column; }
   #yep { margin-top: 8px !important; }
+  .headshot-link { width: 135px !important; }
 }
 
 @media all and (max-width: 800px) and (min-height: 500px) {
@@ -33,4 +34,5 @@
   .who-am-i { padding-top: 2px; }
   #yep { font-size: 6vmax !important; margin-top: 8px !important; }
   .img-circle { display: none; }
+  .headshot-link { width: 135px !important; }
 }
