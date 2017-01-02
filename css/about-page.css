@@ -1,3 +1,28 @@
+#page-about .container {
+  height: 88%;
+}
+.about-container {
+  padding-top: 80px;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.about-container div {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+  align-items: center;
+}
+
+.about-container div p {
+  flex: 1;
+}
+
 .headshot {
   width: 100%;
   border-radius: 100px;
@@ -5,11 +30,13 @@
 
 .headshot-link {
   display: inline-block;
-  width: 200px;
+  width: 150px;
   padding: 2px;
+  margin-left: 3px;
+  margin-right: 3px;
   background-color: #fff;
   line-height: 0;
-  border-radius: 100px;
+  border-radius: 75px;
   transition: background-color 0.5s ease-out;
 }
 
