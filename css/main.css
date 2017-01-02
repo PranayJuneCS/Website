@@ -9,6 +9,10 @@ body {
   font-family: "Lato", "Source Sans Pro", "Open Sans", "Optima", "Roboto";
 }
 
+body::-webkit-scrollbar { 
+  display: none; 
+}
+
 .full-screen {
   height: 100vh;
   width: 100vw;

@@ -5,6 +5,7 @@ $(function() {
   var pagePos;
   var down;
   var listen;
+  var timestamp;
 
   /* HELPER METHODS */
 
@@ -183,6 +184,7 @@ $(function() {
   down = 0;
   listen = true;
   index = 0;
+  timestamp = undefined;
 
   $('html, body').on('DOMMouseScroll mousewheel', function(e) {
     e.preventDefault();
@@ -190,13 +192,27 @@ $(function() {
     if (!listen || navOpen || ($("#lightboxOverlay").css('display') != "none")) {
       return;
     }
-    
+
+    let newTimeStamp = e.originalEvent.timeStamp;
+    if (!e.originalEvent.deltaY && timestamp && newTimeStamp < (timestamp + 1300)) { // firefox
+      return;
+    }
+
     listen = false;
-    if (Math.abs(e.originalEvent.deltaY) < 20) { // not enough scroll
+    if (e.originalEvent.deltaY && Math.abs(e.originalEvent.deltaY) < 20) { // not enough scroll
       listen = true;
       return false;
     }
-    down = e.originalEvent.deltaY > 0;
+
+    timestamp = newTimeStamp;
+
+    let delta;
+    if (e.originalEvent.deltaY) {
+      delta = e.originalEvent.deltaY;
+    } else {
+      delta = e.originalEvent.detail;
+    }
+    down = delta > 0;
     index = Math.min(Math.max(0, down ? ++index : --index), $pages.length - 1);
     pagePos = $pages.eq(index).offset().top;
 
