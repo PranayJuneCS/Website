@@ -1,5 +1,7 @@
 $(function() {
 
+  /* START REAL JS */
+
   var $pages;
   var index;
   var pagePos;
@@ -33,7 +35,15 @@ $(function() {
     }
   };
 
-  var isPortrait = () => {
+  /* INITIAL IE CHECK */
+
+  var $toastContent = $('<span>For the smoothest experience, consider using <a target="_blank" href="https://www.google.com/chrome/">Google Chrome</a>.</span>');
+  if (!isMobile.any() && !isMobile.isPad() && !!document.documentMode) {
+    // only show toast if user is on IE, and not on mobile or iPad
+    Materialize.toast($toastContent, 4000, 'rounded');
+  }
+
+  var isPortrait = function() {
     return window.innerHeight > window.innerWidth;
   };
 
@@ -41,7 +51,7 @@ $(function() {
 
   /* SIDENAV METHODS */
 
-  var openNav = () => {
+  var openNav = function() {
     document.getElementById("mySidenav").style.width = "250px";
     $("#current-nav-page").text("MENU");
     navOpen = true;
@@ -50,7 +60,7 @@ $(function() {
     }
   };
 
-  var closeNav = () => {
+  var closeNav = function() {
     document.getElementById("mySidenav").style.width = "0";
     $("#current-nav-page").text($(".sidenav a.active").text());
     navOpen = false;
@@ -59,7 +69,7 @@ $(function() {
     }
   };
 
-  var toggleNav = () => {
+  var toggleNav = function() {
     if (navOpen) {
       closeNav();
     } else {
@@ -71,7 +81,7 @@ $(function() {
 
   /* SCROLL METHODS */
 
-  var refreshIndex = (page) => {
+  var refreshIndex = function(page) {
     switch (page) {
       case "HOME":
         index = 0;
@@ -96,27 +106,27 @@ $(function() {
 
   /* SIDEBAR JQUERY */
 
-  $("#logo-container img, .hover-menu").mouseover(() => {
+  $("#logo-container img, .hover-menu").mouseover(function() {
     if (!isMobile.any()) {
       openNav();
     }
   });
 
-  $("#logo-container img").on('click', () => {
+  $("#logo-container img").on('click', function() {
     if (isMobile.any() || isMobile.isPad()) {
       toggleNav();
     }
   });
 
-  $(".closebtn").on('click', () => {
+  $(".closebtn").on('click', function() {
     closeNav();
   });
 
-  $("#mySidenav").mouseleave(() => {
+  $("#mySidenav").mouseleave(function() {
     closeNav();
   });
 
-  $(".full-screen").on('click', () => {
+  $(".full-screen").on('click', function() {
     if (isMobile.any() || isMobile.isPad()) {
       if (navOpen) {
         closeNav();
@@ -124,7 +134,7 @@ $(function() {
     }
   });
 
-  $(".sidebar-link").click((e) => {
+  $(".sidebar-link").click(function(e) {
     let href = $(e.currentTarget).attr('href');
     refreshIndex(href.split("-")[1].toUpperCase());
     if (isMobile.any() || isMobile.isPad()) {
@@ -138,19 +148,19 @@ $(function() {
 
   /* ARROW JQUERY */
 
-  $(".go-to-contact").click((e) => {
+  $(".go-to-contact").click(function(e) {
     e.preventDefault();
     $.scrollTo($("#page-contact"), 600);
     index += 1;
   });
 
-  $("a.next-arrow").click((e) => {
+  $("a.next-arrow").click(function(e) {
     let href = $(e.currentTarget).attr('href');
     $("#current-nav-page").text(href.split("-")[1].toUpperCase());
     index += 1;
   });
 
-  $(".arrow-color").click((e) => {
+  $(".arrow-color").click(function(e) {
     index = 0;
     $("#current-nav-page").text("HOME");
   });
@@ -282,17 +292,11 @@ $(function() {
 
   /* INITIALIZATION/EXECUTION */
 
-  window.onbeforeunload = function () {
+  window.onbeforeunload = function() {
     window.scrollTo(0, 0);
   }
 
   let navOpen = false;
-
-  var $toastContent = $('<span>For the smoothest experience, consider using <a target="_blank" href="https://www.google.com/chrome/">Google Chrome</a>.</span>');
-  if (!isMobile.any() && !isMobile.isPad() && (false || !!document.documentMode)) {
-    // only show toast if user is on IE, and not on mobile or iPad
-    Materialize.toast($toastContent, 3000, 'rounded');
-  }
 
   $('.scrollspy').scrollSpy({
     scrollOffset: 1
@@ -304,7 +308,7 @@ $(function() {
     typeSpeed: 50,
     showCursor: false,
     backSpeed: 30,
-    callback: () => {
+    callback: function() {
       $(".intro, .home-line-break, .home-info").removeClass("hide").addClass("fadeIn");
     }
   });
