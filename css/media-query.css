@@ -11,7 +11,7 @@
   .home-info { flex-direction: column; align-items: center; }
   .who-am-i { flex-direction: row; padding-top: 15px; }
   .home-icon { padding-bottom: 0; padding-right: 20px;}
-  .img-circle { padding-top: 2px; width: 100px; }
+  .img-circle { padding-top: 2px; width: 11vmax; height: 11vmax; }
   #yep { margin-top: 15px !important; }
 }
 
@@ -35,4 +35,5 @@
   #yep { font-size: 6vmax !important; margin-top: 8px !important; }
   .img-circle { display: none; }
   .headshot-link { width: 135px !important; }
+  .bottom-page { margin-top: 35px !important; }
 }

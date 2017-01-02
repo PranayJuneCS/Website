@@ -45,7 +45,7 @@ $(function() {
     document.getElementById("mySidenav").style.width = "250px";
     $("#current-nav-page").text("MENU");
     navOpen = true;
-    if (isMobile.any()) {
+    if (isMobile.any() || isMobile.isPad()) {
       $("#current-nav-page").removeClass("hide");
     }
   };
@@ -54,7 +54,7 @@ $(function() {
     document.getElementById("mySidenav").style.width = "0";
     $("#current-nav-page").text($(".sidenav a.active").text());
     navOpen = false;
-    if (isMobile.any()) {
+    if (isMobile.any() || isMobile.isPad()) {
       $("#current-nav-page").addClass("hide");
     }
   };
@@ -236,7 +236,7 @@ $(function() {
     $('a#mail-to').attr('href', 'mailto:pkr2100@gmail.com');
   }
 
-  if (isMobile.any()) {
+  if (isMobile.any() || isMobile.isPad()) {
     $("#current-nav-page").addClass("hide");
   }
 
