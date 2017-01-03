@@ -27,14 +27,18 @@ body::-webkit-scrollbar {
   margin-top: -15px;
 }
 
-.your-class {
+.your-class, .slider-for {
   position: absolute;
   top: 70%;
   left: 50%;
   transform: translateX(-50%);
-  width: 30%;
+  width: 70%;
   text-align: center;
   font-size: 30px;
+}
+
+.slider-for {
+  top: 30% !important;
 }
 
 .slider {

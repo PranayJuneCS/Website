@@ -254,38 +254,50 @@ $(function() {
 
   /* SLICK SLIDER JQUERY */
   
+ $('.slider-for').slick({
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: false,
+    fade: true,
+    asNavFor: '.your-class'
+  });
   $('.your-class').slick({
-    infinite: true,
     slidesToShow: 3,
-    slidesToScroll: 3,
+    asNavFor: '.slider-for',
+    infinite: true,
+    centerPadding: '60px',
     dots: true,
+    speed: 300,
+    centerMode: true,
     responsive: [
     {
-      breakpoint: 1024,
+      breakpoint: 1124,
       settings: {
-        slidesToShow: 3,
-        slidesToScroll: 3,
-        infinite: true,
-        dots: true
+        slidesToShow: 1,
+        dots: false,
+        centerMode: true,
+        centerPadding: '60px',
       }
     },
     {
-      breakpoint: 600,
+      breakpoint: 800,
       settings: {
-        slidesToShow: 2,
-        slidesToScroll: 2,
-        dots: false
+        slidesToShow: 1,
+        dots: false,
+        centerMode: true,
+        centerPadding: '40px'
       }
     },
     {
       breakpoint: 480,
       settings: {
         slidesToShow: 1,
-        slidesToScroll: 1,
-        dots: false
+        dots: false,
+        centerPadding: '40px'
       }
     }
   ]
+
   });
 
   /* END SLICK SLIDER JQUERY */
