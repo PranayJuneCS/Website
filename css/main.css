@@ -27,27 +27,6 @@ body::-webkit-scrollbar {
   margin-top: -15px;
 }
 
-.your-class, .slider-for {
-  position: absolute;
-  top: 70%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 70%;
-  text-align: center;
-  font-size: 30px;
-}
-
-.slider-for {
-  top: 30% !important;
-}
-
-.slider {
-  background-color: white;
-  margin-right: 5px;
-  margin-left: 5px;
-  color: black;
-}
-
 @media (min-width: 1200px) {
   #thats-me {
     left: 50%;

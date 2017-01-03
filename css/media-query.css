@@ -36,4 +36,7 @@
   .img-circle { display: none; }
   .headshot-link { width: 135px !important; }
   .bottom-page { margin-top: 35px !important; }
+  .slider { margin-top: 25px !important; }
+  #page-about .container { width: 75% !important; height: 75% !important; }
+  .about-slider-wrapper { margin-top: 0.7rem !important; }
 }

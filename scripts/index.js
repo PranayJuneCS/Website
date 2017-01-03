@@ -259,9 +259,9 @@ $(function() {
     slidesToScroll: 1,
     arrows: false,
     fade: true,
-    asNavFor: '.your-class'
+    asNavFor: '.about-slider'
   });
-  $('.your-class').slick({
+  $('.about-slider').slick({
     slidesToShow: 3,
     asNavFor: '.slider-for',
     infinite: true,
@@ -276,7 +276,7 @@ $(function() {
         slidesToShow: 1,
         dots: false,
         centerMode: true,
-        centerPadding: '60px',
+        centerPadding: '40px',
       }
     },
     {
@@ -293,6 +293,7 @@ $(function() {
       settings: {
         slidesToShow: 1,
         dots: false,
+        centerMode: true,
         centerPadding: '40px'
       }
     }
