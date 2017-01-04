@@ -38,10 +38,9 @@ body::-webkit-scrollbar {
 .next-arrow {
   position: absolute;
   font-size: 50px;
-  color: white;
   left: 50%;
   transform: translateX(-50%);
-  bottom: 3%;
+  bottom: 0.75%;
   color: purple;
 }
 

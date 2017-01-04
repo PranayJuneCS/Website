@@ -8,6 +8,7 @@ $(function() {
   var down;
   var listen;
   var timestamp;
+  var nextPage;
 
   /* HELPER METHODS */
 
@@ -62,7 +63,12 @@ $(function() {
 
   var closeNav = function() {
     document.getElementById("mySidenav").style.width = "0";
-    $("#current-nav-page").text($(".sidenav a.active").text());
+    if (!nextPage) {
+      $("#current-nav-page").text($(".sidenav a.active").text()); 
+    } else {
+      $("#current-nav-page").text(nextPage);
+      nextPage = null;
+    }
     navOpen = false;
     if (isMobile.any() || isMobile.isPad()) {
       $("#current-nav-page").addClass("hide");
@@ -136,7 +142,8 @@ $(function() {
 
   $(".sidebar-link").click(function(e) {
     let href = $(e.currentTarget).attr('href');
-    refreshIndex(href.split("-")[1].toUpperCase());
+    nextPage = href.split("-")[1].toUpperCase();
+    refreshIndex(nextPage);
     if (isMobile.any() || isMobile.isPad()) {
       if (navOpen) {
         closeNav();
@@ -253,8 +260,17 @@ $(function() {
   /* END SPECIAL CASES */
 
   /* SLICK SLIDER JQUERY */
+
+  $(".about-container").slick({
+    infinite: true,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    fade: true,
+    dots: true,
+    adaptiveHeight: true
+  });
   
- $('.slider-for').slick({
+  $('.slider-for').slick({
     slidesToShow: 1,
     slidesToScroll: 1,
     arrows: false,
