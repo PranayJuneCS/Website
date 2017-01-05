@@ -257,6 +257,10 @@ $(function() {
     $("#current-nav-page").addClass("hide");
   }
 
+  if (!(isMobile.any() || isMobile.isPad())) {
+    $(".about-me-header").addClass("hide");
+  }
+
   /* END SPECIAL CASES */
 
   /* SLICK SLIDER JQUERY */
@@ -272,50 +276,67 @@ $(function() {
   
   $('.slider-for').slick({
     slidesToShow: 1,
-    slidesToScroll: 1,
     arrows: false,
-    fade: true,
-    asNavFor: '.about-slider'
-  });
-  $('.about-slider').slick({
-    slidesToShow: 3,
-    asNavFor: '.slider-for',
-    infinite: true,
-    centerPadding: '60px',
-    dots: true,
-    speed: 300,
     centerMode: true,
+    centerPadding: '60px',
+    speed: 300,
+    infinite: true,
+    dots: true,
+    adaptiveHeight: true,
     responsive: [
-    {
-      breakpoint: 1124,
-      settings: {
-        slidesToShow: 1,
-        dots: false,
-        centerMode: true,
-        centerPadding: '40px',
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 1,
+          arrows: false,
+          centerMode: true,
+          centerPadding: '35px',
+          speed: 300,
+          infinite: true,
+          dots: false,
+          adaptiveHeight: true
+        }
       }
-    },
-    {
-      breakpoint: 800,
-      settings: {
-        slidesToShow: 1,
-        dots: false,
-        centerMode: true,
-        centerPadding: '40px'
-      }
-    },
-    {
-      breakpoint: 480,
-      settings: {
-        slidesToShow: 1,
-        dots: false,
-        centerMode: true,
-        centerPadding: '40px'
-      }
-    }
-  ]
-
+    ]
   });
+  // $('.about-slider').slick({
+  //   slidesToShow: 3,
+  //   asNavFor: '.slider-for',
+  //   infinite: true,
+  //   centerPadding: '60px',
+  //   dots: true,
+  //   speed: 300,
+  //   centerMode: true,
+  //   responsive: [
+  //   {
+  //     breakpoint: 1124,
+  //     settings: {
+  //       slidesToShow: 1,
+  //       dots: false,
+  //       centerMode: true,
+  //       centerPadding: '40px',
+  //     }
+  //   },
+  //   {
+  //     breakpoint: 800,
+  //     settings: {
+  //       slidesToShow: 1,
+  //       dots: false,
+  //       centerMode: true,
+  //       centerPadding: '40px'
+  //     }
+  //   },
+  //   {
+  //     breakpoint: 480,
+  //     settings: {
+  //       slidesToShow: 1,
+  //       dots: false,
+  //       centerMode: true,
+  //       centerPadding: '40px'
+  //     }
+  //   }
+  // ]
+  // });
 
   /* END SLICK SLIDER JQUERY */
 

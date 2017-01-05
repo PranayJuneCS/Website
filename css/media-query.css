@@ -15,6 +15,39 @@
   #yep { margin-top: 15px !important; }
 }
 
+@media all and (max-width: 890px) and (min-height: 500px) {
+  .paragraph { font-size: 18px !important; line-height: 1.55 !important; }
+  .para-small { font-size: 17px !important; line-height: 1.45 !important; }
+}
+
+@media all and (max-width: 770px) and (min-height: 500px) {
+  .paragraph { font-size: 16px !important; line-height: 1.5 !important; }
+  .para-small { font-size: 14px !important; line-height: 1.4 !important; }
+}
+
+@media all and (max-width: 700px) and (min-height: 500px) {
+  .headshot-link { width: 12em !important; }
+}
+
+@media all and (max-width: 630px) {
+  .headshot-link { width: 8em !important; }
+  .slider-content { flex-direction: column !important; }
+  .card .card-content { padding: 8px !important; }
+}
+
+@media all and (max-width: 515px) {
+  .headshot-link { width: 6em !important; }
+  .paragraph { font-size: 14px !important; line-height: 1.4 !important; }
+  .slider h4 { font-size: 20px !important; }
+}
+
+@media all and (max-width: 420px) {
+  .headshot-link { width: 5.5em !important; }
+  .paragraph { font-size: 14px !important; line-height: 1.35 !important; }
+  .para-small { font-size: 14px !important; line-height: 1.35 !important; }
+  .slider h4 { font-size: 18px !important; }
+}
+
 @media all and (min-width: 800px) and (max-width: 1200px) {
   .home-icon { padding-bottom: 70px; }
   .who-am-i { padding-top: 30px;}
