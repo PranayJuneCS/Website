@@ -56,7 +56,7 @@ $(function() {
     document.getElementById("mySidenav").style.width = "250px";
     $("#current-nav-page").text("MENU");
     navOpen = true;
-    if (isMobile.any() || isMobile.isPad()) {
+    if (isMobile.any()) {
       $("#current-nav-page").removeClass("hide");
     }
   };
@@ -70,7 +70,7 @@ $(function() {
       nextPage = null;
     }
     navOpen = false;
-    if (isMobile.any() || isMobile.isPad()) {
+    if (isMobile.any()) {
       $("#current-nav-page").addClass("hide");
     }
   };
@@ -253,12 +253,8 @@ $(function() {
     $('a#mail-to').attr('href', 'mailto:pkr2100@gmail.com');
   }
 
-  if (isMobile.any() || isMobile.isPad()) {
+  if (isMobile.any()) {
     $("#current-nav-page").addClass("hide");
-  }
-
-  if (!(isMobile.any() || isMobile.isPad())) {
-    $(".about-me-header").addClass("hide");
   }
 
   /* END SPECIAL CASES */
@@ -299,44 +295,6 @@ $(function() {
       }
     ]
   });
-  // $('.about-slider').slick({
-  //   slidesToShow: 3,
-  //   asNavFor: '.slider-for',
-  //   infinite: true,
-  //   centerPadding: '60px',
-  //   dots: true,
-  //   speed: 300,
-  //   centerMode: true,
-  //   responsive: [
-  //   {
-  //     breakpoint: 1124,
-  //     settings: {
-  //       slidesToShow: 1,
-  //       dots: false,
-  //       centerMode: true,
-  //       centerPadding: '40px',
-  //     }
-  //   },
-  //   {
-  //     breakpoint: 800,
-  //     settings: {
-  //       slidesToShow: 1,
-  //       dots: false,
-  //       centerMode: true,
-  //       centerPadding: '40px'
-  //     }
-  //   },
-  //   {
-  //     breakpoint: 480,
-  //     settings: {
-  //       slidesToShow: 1,
-  //       dots: false,
-  //       centerMode: true,
-  //       centerPadding: '40px'
-  //     }
-  //   }
-  // ]
-  // });
 
   /* END SLICK SLIDER JQUERY */
 

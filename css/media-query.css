@@ -72,4 +72,13 @@
   .slider { margin-top: 25px !important; }
   #page-about .container { width: 75% !important; height: 75% !important; }
   .about-slider-wrapper { margin-top: 0.7rem !important; }
+  .headshot-link { width: 5.5em !important; }
+  .paragraph { font-size: 14px !important; line-height: 1.35 !important; }
+  .para-small { font-size: 13px !important; line-height: 1.35 !important; }
+  .slider h4 { font-size: 18px !important; }
+  .slider-content { flex-direction: column !important; }
+  .card .card-content { padding: 8px !important; }
+  .slider-for { top: 50% !important; }
+  .slick-dots { display: none !important; }
+  .about-me-header { display: none !important; }
 }
