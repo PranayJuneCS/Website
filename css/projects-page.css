@@ -9,8 +9,12 @@
 
 #page-projects .container {
   height: 100%;
+  margin-top: 90px;
 }
 
 .card-title i {
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+}
+
+.slider-nav div {
 }
