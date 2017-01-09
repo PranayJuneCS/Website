@@ -257,6 +257,10 @@ $(function() {
     $("#current-nav-page").addClass("hide");
   }
 
+  if (isMobile.any() || isMobile.isPad()) {
+    $('.material-tooltip').addClass("hide");
+  }
+
   /* END SPECIAL CASES */
 
   /* SLICK SLIDER JQUERY */
@@ -299,21 +303,9 @@ $(function() {
   $('.info-cards').slick({
     slidesToShow: 1,
     slidesToScroll: 1,
-    arrows: false,
-    fade: true,
-    asNavFor: '.slider-nav'
-  });
-  $('.slider-nav').slick({
-    slidesToShow: 1,
     arrows: true,
-    speed: 300,
-    infinite: true,
+    fade: true,
     dots: true,
-    adaptiveHeight: true,
-    asNavFor: '.info-cards',
-    focusOnSelect: true,
-    centerMode: true,
-    centerPadding: '30px'
   });
 
   /* END SLICK SLIDER JQUERY */
