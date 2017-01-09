@@ -306,6 +306,25 @@ $(function() {
     arrows: true,
     fade: true,
     dots: true,
+    infinite: true,
+    adaptiveHeight: true,
+    responsive: [
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 1,
+          arrows: false,
+          centerMode: true,
+          centerPadding: '50px',
+          focusOnSelect: true,
+          speed: 300,
+          infinite: true,
+          dots: false,
+          adaptiveHeight: true,
+          fade: false
+        }
+      }
+    ]
   });
 
   /* END SLICK SLIDER JQUERY */
