@@ -304,12 +304,16 @@ $(function() {
     asNavFor: '.slider-nav'
   });
   $('.slider-nav').slick({
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    asNavFor: '.info-cards',
+    slidesToShow: 1,
+    arrows: true,
+    speed: 300,
+    infinite: true,
     dots: true,
+    adaptiveHeight: true,
+    asNavFor: '.info-cards',
+    focusOnSelect: true,
     centerMode: true,
-    focusOnSelect: true
+    centerPadding: '30px'
   });
 
   /* END SLICK SLIDER JQUERY */
