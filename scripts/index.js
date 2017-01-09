@@ -261,6 +261,10 @@ $(function() {
     $('.material-tooltip').addClass("hide");
   }
 
+  if (!isMobile.any()) {
+    $('.about-me-header').addClass("hide");
+  }
+
   /* END SPECIAL CASES */
 
   /* SLICK SLIDER JQUERY */
@@ -315,7 +319,7 @@ $(function() {
           slidesToShow: 1,
           arrows: false,
           centerMode: true,
-          centerPadding: '50px',
+          centerPadding: '45px',
           focusOnSelect: true,
           speed: 300,
           infinite: true,
