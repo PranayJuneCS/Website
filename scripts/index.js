@@ -355,4 +355,13 @@ $(function() {
     }
   });
 
+  $(".more-info-button").click(function(e) {
+    $(e.currentTarget.nextElementSibling).removeClass("hide");
+  });
+
+  $(".card-reveal span").click(function(e) {
+    var cardAction = e.currentTarget.parentNode.parentNode.children[1];
+    $(cardAction).addClass("hide");
+  });
+
 });
