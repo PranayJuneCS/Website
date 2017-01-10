@@ -297,7 +297,7 @@ $(function() {
           centerPadding: '35px',
           speed: 300,
           infinite: true,
-          dots: false,
+          dots: true,
           adaptiveHeight: true
         }
       }
@@ -322,7 +322,7 @@ $(function() {
           centerPadding: '45px',
           speed: 300,
           infinite: true,
-          dots: false,
+          dots: true,
           adaptiveHeight: true,
           fade: false
         }
