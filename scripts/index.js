@@ -308,9 +308,9 @@ $(function() {
     slidesToShow: 1,
     slidesToScroll: 1,
     arrows: true,
-    fade: true,
     dots: true,
     infinite: true,
+    fade: true,
     adaptiveHeight: true,
     responsive: [
       {
@@ -320,7 +320,6 @@ $(function() {
           arrows: false,
           centerMode: true,
           centerPadding: '45px',
-          focusOnSelect: true,
           speed: 300,
           infinite: true,
           dots: false,
