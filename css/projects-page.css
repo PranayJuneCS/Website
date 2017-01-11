@@ -49,10 +49,6 @@
   transform: translateY(-50%);
 }
 
-.feedback-welcome {
-  cursor: pointer;
-}
-
 .project-slide, .card, .card-reveal, .container, .info-cards {
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
 }

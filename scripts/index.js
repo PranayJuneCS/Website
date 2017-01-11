@@ -95,10 +95,10 @@ $(function() {
       case "ABOUT":
         index = 1;
         break;
-      case "PROJECTS":
+      case "WORK":
         index = 2;
         break;
-      case "STUFF":
+      case "PROJECTS":
         index = 3;
         break;
       default:
@@ -159,12 +159,6 @@ $(function() {
     e.preventDefault();
     $.scrollTo($("#page-contact"), 600);
     index += 1;
-  });
-
-  $(".feedback-welcome").click(function(e) {
-    e.preventDefault();
-    $.scrollTo($("#page-contact"), 600);
-    index += 2;
     $("#current-nav-page").text("");
   });
 
