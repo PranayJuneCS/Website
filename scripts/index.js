@@ -59,6 +59,14 @@ $(function() {
     if (isMobile.any()) {
       $("#current-nav-page").removeClass("hide");
     }
+    if (index != 4) {
+      if ($("#contact-homie").hasClass("active")) {
+        $("#contact-homie").removeClass("active");
+      }
+    } else {
+      $('.active').removeClass("active");
+      $("#contact-homie").addClass("active");
+    }
   };
 
   var closeNav = function() {
@@ -72,6 +80,10 @@ $(function() {
     navOpen = false;
     if (isMobile.any()) {
       $("#current-nav-page").addClass("hide");
+    }
+    if (index == 4) {
+      $('.active').removeClass("active");
+      $("#contact-homie").addClass("active");
     }
   };
 
@@ -100,6 +112,9 @@ $(function() {
         break;
       case "PROJECTS":
         index = 3;
+        break;
+      case "CONTACT":
+        index = 4;
         break;
       default:
         index = 0;
@@ -144,23 +159,30 @@ $(function() {
     let href = $(e.currentTarget).attr('href');
     nextPage = href.split("-")[1].toUpperCase();
     refreshIndex(nextPage);
+    if (index != 4) {
+      if ($("#contact-homie").hasClass("active")) {
+        $("#contact-homie").removeClass("active");
+      }
+    }
+    $(e.currentTarget).addClass("active");
     if (isMobile.any() || isMobile.isPad()) {
       if (navOpen) {
         closeNav();
       }
     }
+    
   });
 
   /* END SIDEBAR JQUERY */
 
   /* ARROW JQUERY */
 
-  $(".go-to-contact").click(function(e) {
-    e.preventDefault();
-    $.scrollTo($("#page-contact"), 600);
-    index += 1;
-    $("#current-nav-page").text("");
-  });
+  // $(".go-to-contact").click(function(e) {
+  //   e.preventDefault();
+  //   $.scrollTo($("#page-contact"), 600);
+  //   index += 1;
+  //   $("#current-nav-page").text("");
+  // });
 
   $("a.next-arrow").click(function(e) {
     let href = $(e.currentTarget).attr('href');
@@ -185,11 +207,11 @@ $(function() {
       e.preventDefault();
       if (key == 32) { // space bar
         if (!navOpen) {
-          if (index < 3) {
-            $($(".next-arrow")[index]).click();
-          } else {
-            $(".go-to-contact").click();
-          }
+          // if (index < 3) {
+          $($(".next-arrow")[index]).click();
+          // } else {
+          //   $(".go-to-contact").click();
+          // }
         }
       }
       return false;
@@ -239,9 +261,9 @@ $(function() {
     $.scrollTo($("#" + pageId), 800, {
       onAfter: function() {
         listen = true;
-        if (!pageId.match(/contact/i)) {
+        // if (!pageId.match(/contact/i)) {
           $("#current-nav-page").text(pageId.split("-")[1].toUpperCase());
-        }
+        // }
       }
     });
   });
