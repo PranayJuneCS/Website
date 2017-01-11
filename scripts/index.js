@@ -161,6 +161,13 @@ $(function() {
     index += 1;
   });
 
+  $(".feedback-welcome").click(function(e) {
+    e.preventDefault();
+    $.scrollTo($("#page-contact"), 600);
+    index += 2;
+    $("#current-nav-page").text("");
+  });
+
   $("a.next-arrow").click(function(e) {
     let href = $(e.currentTarget).attr('href');
     $("#current-nav-page").text(href.split("-")[1].toUpperCase());
