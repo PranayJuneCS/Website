@@ -35,6 +35,10 @@
   .card .card-content { padding: 8px !important; }
 }
 
+@media all and (max-width: 600px) {
+  .work-para { font-size: 16px !important; line-height: 1.45 !important; }
+}
+
 @media all and (max-width: 515px) {
   .headshot-link { width: 6em !important; }
   .paragraph { font-size: 14px !important; line-height: 1.4 !important; }
