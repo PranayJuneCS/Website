@@ -48,6 +48,16 @@ $(function() {
     return window.innerHeight > window.innerWidth;
   };
 
+  var isScrolledIntoView = function(elem) {
+    var docViewTop = $(window).scrollTop();
+    var docViewBottom = docViewTop + $(window).height();
+
+    var elemTop = $(elem).offset().top;
+    var elemBottom = elemTop + $(elem).height();
+
+    return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
+  }
+
   /* END HELPER METHODS */
 
   /* SIDENAV METHODS */
@@ -58,14 +68,6 @@ $(function() {
     navOpen = true;
     if (isMobile.any()) {
       $("#current-nav-page").removeClass("hide");
-    }
-    if (index != 4) {
-      if ($("#contact-homie").hasClass("active")) {
-        $("#contact-homie").removeClass("active");
-      }
-    } else {
-      $('.active').removeClass("active");
-      $("#contact-homie").addClass("active");
     }
   };
 
@@ -81,10 +83,6 @@ $(function() {
     if (isMobile.any()) {
       $("#current-nav-page").addClass("hide");
     }
-    if (index == 4) {
-      $('.active').removeClass("active");
-      $("#contact-homie").addClass("active");
-    }
   };
 
   var toggleNav = function() {
@@ -99,6 +97,17 @@ $(function() {
 
   /* SCROLL METHODS */
 
+  $(window).scroll(function() {
+    if (isScrolledIntoView("#page-contact")) {
+      $(".active").removeClass("active");
+      $("#contact-homie").addClass('active');
+    } else {
+      if ($("#contact-homie").hasClass('active')) {
+        $("#contact-homie").removeClass('active');
+      }
+    }
+  });
+
   var refreshIndex = function(page) {
     switch (page) {
       case "HOME":
@@ -112,9 +121,6 @@ $(function() {
         break;
       case "PROJECTS":
         index = 3;
-        break;
-      case "CONTACT":
-        index = 4;
         break;
       default:
         index = 0;
@@ -159,11 +165,6 @@ $(function() {
     let href = $(e.currentTarget).attr('href');
     nextPage = href.split("-")[1].toUpperCase();
     refreshIndex(nextPage);
-    if (index != 4) {
-      if ($("#contact-homie").hasClass("active")) {
-        $("#contact-homie").removeClass("active");
-      }
-    }
     $(e.currentTarget).addClass("active");
     if (isMobile.any() || isMobile.isPad()) {
       if (navOpen) {
@@ -177,12 +178,21 @@ $(function() {
 
   /* ARROW JQUERY */
 
-  // $(".go-to-contact").click(function(e) {
-  //   e.preventDefault();
-  //   $.scrollTo($("#page-contact"), 600);
-  //   index += 1;
-  //   $("#current-nav-page").text("");
-  // });
+  $(".go-to-contact, #contact-homie").click(function(e) {
+    e.preventDefault();
+    $.scrollTo($("#page-contact"), 600);
+    index = 4;
+    if (!navOpen) {
+      $("#current-nav-page").text("CONTACT");
+    } else {
+      nextPage = "CONTACT";
+    }
+    if (isMobile.any() || isMobile.isPad()) {
+      if (navOpen) {
+        closeNav();
+      }
+    }
+  });
 
   $("a.next-arrow").click(function(e) {
     let href = $(e.currentTarget).attr('href');
@@ -207,11 +217,11 @@ $(function() {
       e.preventDefault();
       if (key == 32) { // space bar
         if (!navOpen) {
-          // if (index < 3) {
-          $($(".next-arrow")[index]).click();
-          // } else {
-          //   $(".go-to-contact").click();
-          // }
+          if (index < 3) {
+            $($(".next-arrow")[index]).click();
+          } else {
+            $(".go-to-contact").click();
+          }
         }
       }
       return false;
@@ -263,6 +273,7 @@ $(function() {
         listen = true;
         // if (!pageId.match(/contact/i)) {
           $("#current-nav-page").text(pageId.split("-")[1].toUpperCase());
+          $('a[href="#' + pageId + '"]').addClass("active");
         // }
       }
     });
