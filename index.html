@@ -11,6 +11,7 @@
     <script src="scripts/vendors/lightbox.min.js"></script>
     <script src="https://cdn.jsdelivr.net/jquery.scrollto/2.1.2/jquery.scrollTo.min.js"></script>
     <script type="text/javascript" src="slick/slick.min.js"></script>
+    <script src="scripts/index.js"></script>
     <link rel='stylesheet' href='css/materialize.min.css' />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
@@ -18,6 +19,7 @@
     <link href="css/lightbox.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
     <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
+    <link rel='stylesheet' href='css/loading-page.css' />
     <link rel='stylesheet' href='css/sidebar.css' />
     <link rel='stylesheet' href='css/home-page.css' />
     <link rel='stylesheet' href='css/about-page.css' />
@@ -32,550 +34,562 @@
     <link rel="manifest" href="/manifest.json">
     <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
     <meta name="theme-color" content="#ffffff">
+    <noscript>
+      <style>
+          .nojs { display: none; }
+      </style>
+    </noscript>
   </head>
   <body>
-    <div id="logo-container">
-      <img src="images/logo.png">
-      <h5 id='current-nav-page'>HOME</h5>
-    </div>
-    <span id="menu-indicator">MENU</span>
-    <div id="page-home" class="full-screen animated fadeIn scrollspy">
-      <div class="hover-menu"></div>
-      <div id="home-container" class="container">
-          <div id="typed-strings">
-            <p>Hello! ^1000</p>
-            <p>My name is <br/><strong style="color: purple;">Pranay Kumar.</strong></p>
-          </div>
-          <h1 id="typed"></h1>
-          <hr width="100%" class="animated hide home-line-break" />
-            <div class="home-info animated hide">
-              <div class="who-am-i">
-                <i class="home-icon fa fa-4x fa-code"></i>
-                <h4 class="desc">ENGINEER</h4>
-              </div>
-              <div class="who-am-i">
-                <i class="home-icon fa fa-4x fa-futbol-o"></i>
-                <h4 class="desc">BALLER</h4>
-              </div>
-              <div class="who-am-i">
-                <img width="76px" class="home-icon" src="images/cal.png">
-                <h4 class="desc">STUDENT</h4>
-              </div>
-            </div>
-          <a href="#page-about" class="next-arrow tooltipped" data-position="right" data-delay="25" data-tooltip="About Me">
-            <i class="fa fa-chevron-circle-down"></i>
-          </a>
+    <div class="yo animated nojs">
+      <h1 class="animated fadeIn">HELLO!</h1>
+      <div class="sk-double-bounce">
+        <div class="sk-child sk-double-bounce1"></div>
+        <div class="sk-child sk-double-bounce2"></div>
       </div>
     </div>
-
-
-    <div id="page-about" class="full-screen scrollspy">
-      <div class="hover-menu"></div>
-      <a href="#page-work" class="next-arrow tooltipped" data-position="right" data-delay="25" data-tooltip="My Work Experience">
-        <i class="fa fa-chevron-circle-down"></i>
-      </a>
-
-
-      <div class="container hide-on-med-and-down">
-        <div class="about-container">
-          <div>
-            <h4><i class="fa fa-code"></i> My Life as a Engineer <i class="fa fa-code"></i></h4>
-            <div class="card purple darken-1 hoverable">
-              <div class="card-content">
-                <div class="slider-content">
-                  <div>
-                    <a class="headshot-link" href="images/headshot.png" data-title="Classic Headshot." data-lightbox="about-large">
-                  <img class="headshot" src="images/headshot.png" alt="Classic Headshot.">
-                </a>
-                  </div>
-                    <p class="para">Hey! My name is <span class="my-name">Pranay Kumar</span> (if you didn't notice), and I am a proud undergraduate of the University of California, Berkeley. Through my coursework at school and past internship experience, I have developed an avid interest for computer science. I especially nerd out when it comes to web and mobile application development, and always love a good problem to solve. What's next for me as a computer scientist? I want to dive into the field of AI and machine learning - what's cooler than making a computer think like a human? Not much.</p>
+    <div class="everything">
+      <div id="logo-container">
+        <img src="images/logo.png">
+        <h5 id='current-nav-page'>HOME</h5>
+      </div>
+      <span id="menu-indicator">MENU</span>
+      <div id="page-home" class="full-screen animated fadeIn scrollspy">
+        <div class="hover-menu"></div>
+        <div id="home-container" class="container">
+            <div id="typed-strings">
+              <p>My name is <br/><strong style="color: purple;">Pranay Kumar.</strong></p>
+            </div>
+            <h1 id="typed"></h1>
+            <hr width="100%" class="animated hide home-line-break" />
+              <div class="home-info animated hide">
+                <div class="who-am-i">
+                  <i class="home-icon fa fa-4x fa-code"></i>
+                  <h4 class="desc">ENGINEER</h4>
+                </div>
+                <div class="who-am-i">
+                  <i class="home-icon fa fa-4x fa-futbol-o"></i>
+                  <h4 class="desc">BALLER</h4>
+                </div>
+                <div class="who-am-i">
+                  <img width="76px" class="home-icon" src="images/cal.png">
+                  <h4 class="desc">STUDENT</h4>
                 </div>
               </div>
-            </div>
-          </div>
-          <div>
-            <h4><i class="fa fa-futbol-o"></i> My Life as a Baller <i class="fa fa-futbol-o"></i></h4>
-            <div class="card purple darken-2 hoverable">
-              <div class="card-content">
-                <div class="slider-content">
-                  <div>
-                    <a class="headshot-link" href="images/bball_me.png" data-title="NBA Player." data-lightbox="about-large">
-                      <img class="headshot" src="images/bball_me.png" alt="NBA Player.">
-                    </a>
-                  </div>
-                    <p class="para">Surprisingly, <span class="my-name">I do have a life outside of CS.</span> In my hometown of Foothill Ranch, California (<a href="http://tinyurl.com/h83pmn5" target="_blank">you haven't heard of it?</a>), there isn't much to do apart from soak up the sun and eat food. As a result, I found myself drawn towards watching and playing sports of all kind. When I'm not in front of my laptop, I'm usually in the gym lifting weights or working on my jump shot. When I'm not trying to (questionably) imitate Kobe Bryant, I'm probably out on the tennis court perfecting my groundstrokes. Sports give me a much appreciated break from my otherwise nerdy lifestyle.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div>
-            <h4><i class="fa fa-graduation-cap"></i> My Life as a Cal Student  <i class="fa fa-graduation-cap"></i></h4>
-            <div class="card purple darken-2 hoverable">
-              <div class="card-content">
-                <div class="slider-content">
-                  <div>
-                    <a class="headshot-link" href="images/cal_me.jpg" data-title="Go Bears!" data-lightbox="about-large">
-                      <img class="headshot" src="images/cal_me.jpg" alt="Go Bears!">
-                    </a>
-                  </div>
-                    <p class="para-small">Did I mention I go to <span class="my-name">Cal?</span> I am a third year undergraduate majoring in Electrical Engineering and Computer Sciences. Life in Berkeley is quite... interesting, as not a day goes by where I don't see something new. I stay involved in the CS community on campus by reading and tutoring for lower division classes, and as a member of Eta Kappa Nu, UC Berkeley's EECS Honors Society. When I'm not "studying" for midterms or "paying attention" in lecture, I participate in intramural basketball tournaments throughout the semester. These activities, the stimulating coursework, and the amazing friends I've made have made my experience at Cal unforgettable.</p>
-                </div>
-              </div>
-            </div>
-          </div>
+            <a href="#page-about" class="next-arrow tooltipped" data-position="right" data-delay="25" data-tooltip="About Me">
+              <i class="fa fa-chevron-circle-down"></i>
+            </a>
         </div>
       </div>
 
 
+      <div id="page-about" class="full-screen scrollspy">
+        <div class="hover-menu"></div>
+        <a href="#page-work" class="next-arrow tooltipped" data-position="right" data-delay="25" data-tooltip="My Work Experience">
+          <i class="fa fa-chevron-circle-down"></i>
+        </a>
 
-      <h3 class="about-me-header hide-on-med-and-up">About Me</h3>
-      <div class="small-about-container hide-on-large-only">
-        <div class="slider-for">
-          <div class="slider">
-            <h4><i class="fa fa-code"></i> My Life as a Engineer</i></h4>
-            <div class="card purple darken-1 hoverable">
-              <div class="card-content white-text">
-                <div class="slider-content">
-                  <div>
-                    <a class="headshot-link" href="images/headshot.png" data-title="Classic Headshot." data-lightbox="about-small-1">
-                      <img class="headshot" src="images/headshot.png" alt="Classic Headshot.">
-                    </a>
-                  </div>
-                    <p class="para paragraph">Hey! My name is <span class="my-name">Pranay Kumar</span> (if you didn't notice), and I am a proud undergraduate of the University of California, Berkeley. Through my coursework at school and past internship experience, I have developed an avid interest for computer science. I especially nerd out when it comes to web and mobile application development, and always love a good problem to solve. What's next for me as a computer scientist? I want to dive into the field of AI and machine learning - what's cooler than making a computer think like a human? Not much.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="slider">
-            <h4><i class="fa fa-futbol-o"></i> My Life as a Baller</i></h4>
-            <div class="card purple darken-2 hoverable">
-              <div class="card-content white-text">
-                <div class="slider-content">
-                  <div>
-                    <a class="headshot-link" href="images/bball_me.png" data-title="NBA Player." data-lightbox="about-small-2">
-                      <img class="headshot" src="images/bball_me.png" alt="NBA Player.">
-                    </a>
-                  </div>
-                    <p class="para paragraph">Surprisingly, <span class="my-name">I do have a life outside of CS.</span> In my hometown of Foothill Ranch, California (<a href="http://tinyurl.com/h83pmn5" target="_blank">you haven't heard of it?</a>), there isn't much to do apart from soak up the sun and eat food. As a result, I found myself drawn towards watching and playing sports of all kind. When I'm not in front of my laptop, I'm usually in the gym lifting weights or working on my jump shot. When I'm not trying to (questionably) imitate Kobe Bryant, I'm probably out on the tennis court perfecting my groundstrokes. Sports give me a much appreciated break from my otherwise nerdy lifestyle.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="slider">
-            <h4><i class="fa fa-graduation-cap"></i> My Life as a Cal Student</h4>
-            <div class="card purple darken-2 hoverable">
-              <div class="card-content white-text">
-                <div class="slider-content">
-                  <div>
-                    <a class="headshot-link" href="images/cal_me.jpg" data-title="Go Bears!" data-lightbox="about-small-3">
-                      <img class="headshot" src="images/cal_me.jpg" alt="Go Bears!">
-                    </a>
-                  </div>
-                    <p class="paragraph para-small">Did I mention I go to <span class="my-name">Cal?</span> I am a third year undergraduate majoring in Electrical Engineering and Computer Sciences. Life in Berkeley is quite... interesting, as not a day goes by where I don't see something new. I stay involved in the CS community on campus by reading and tutoring for lower division classes, and as a member of Eta Kappa Nu, UC Berkeley's EECS Honors Society. When I'm not "studying" for midterms or "paying attention" in lecture, I participate in intramural basketball tournaments throughout the semester. These activities, the stimulating coursework, and the amazing friends I've made have made my experience at Cal unforgettable.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
 
-    <div id="page-work" class="full-screen scrollspy">
-      <div class="hover-menu"></div>
-      <a href="#page-projects" class="next-arrow tooltipped" data-position="right" data-delay="25" data-tooltip="My Projects">
-        <i class="fa fa-chevron-circle-down"></i>
-      </a>
-
-      <div class="container hide-on-small-only">
-        <div class="row main-container">
-          <div class="col s4 content-right">
-            <img class="responsive-img" width="100px" style="display: inline-block" src="images/appfolio.png">
-            <h5>AppFolio</h5>
-            <div class="card-panel purple darken-1">
-              <p>In the summer of 2016, I had my first internship at AppFolio, Inc. My project over the summer was to develop the AppFolio Property Manager mobile app for iOS and Android using React Native and Ruby on Rails. My 14 weeks were extremely valuable, as I matured as an engineer and learned how to work efficiently and agile-ly in a team. Ultimately, we released the <a target="_blank" href="https://tinyurl.com/appfolio-mobile">app</a> to the public and it is a great success.</p>
-            </div>
-          </div>
-          <div class="col s4 content-right">
-            <img class="responsive-img" width="100px" style="display: inline-block" src="images/cal.png">
-            <h5>Laucity</h5>
-            <div class="card-panel purple darken-2">
-              <p>My three housemates in Berkeley are all CS nerds like me, so naturally in sophomore year we decided to create a startup application company - <a target="_blank" href="https://www.laucity.com">Laucity</a>. We specialize in developing web and mobile apps that make the lives of college students just a bit easier. I specialize in the mobile and front-end web development of our applications. Currently, we have one BIG idea that is under development. Stay tuned!</p>
-            </div>
-          </div>
-          <div class="col s4">
-            <img class="responsive-img" width="100px" style="display: inline-block" src="images/linkedin.png">
-            <h5>LinkedIn</h5>
-            <div class="card-panel purple darken-1">
-              <p>In the summer of 2017, I have the privilege of being a software engineering intern at LinkedIn Corporation. My project will mainly be focused on the paid features of the product, such as the Recruiters platform and LinkedIn Learning. I am looking forward to having a wonderful three months learning new skills, connecting with a bunch of new people, and having loads of fun!</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <h4 class="about-me-header hide-on-med-and-up">Work Experience</h4>
-      <div class="small-about-container hide-on-med-and-up">
-        <div class="slider-for">
-          <div class="slider">
-            <h3 class="white-text">AppFolio</h3>
-            <div class="card purple darken-1 hoverable">
-              <div class="card-content white-text">
-                <div class="slider-content">
-                  <div>
-                    <a class="headshot-link" href="images/appfolio.png" data-title="AppFolio Logo." data-lightbox="work-small">
-                      <img class="headshot" src="images/appfolio.png" alt="AppFolio Logo.">
-                    </a>
-                  </div>
-                    <p class="work-para">In the summer of 2016, I had my first internship at AppFolio, Inc. My project over the summer was to develop the AppFolio Property Manager mobile app for iOS and Android using React Native and Ruby on Rails. My 14 weeks were extremely valuable, as I matured as an engineer and learned how to work efficiently and agile-ly in a team. Ultimately, we released the <a target="_blank" href="https://tinyurl.com/appfolio-mobile">app</a> to the public and it is a great success.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="slider">
-            <h3 class="white-text">Laucity</h3>
-            <div class="card purple darken-2 hoverable">
-              <div class="card-content white-text">
-                <div class="slider-content">
-                  <div>
-                    <a class="headshot-link" href="images/cal.png" data-title="Cal Logo." data-lightbox="work-small-2">
-                      <img class="headshot" src="images/cal.png" alt="Cal Logo.">
-                    </a>
-                  </div>
-                    <p class="work-para">My three housemates in Berkeley are all CS nerds like me, so naturally in sophomore year we decided to create a startup application company - <a target="_blank" href="https://www.laucity.com">Laucity</a>. We specialize in developing web and mobile apps that make the lives of college students just a bit easier. I specialize in the mobile and front-end web development of our applications. Currently, we have one BIG idea that is under development. Stay tuned!</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="slider">
-            <h3 class="white-text">LinkedIn</h3>
-            <div class="card purple darken-2 hoverable">
-              <div class="card-content white-text">
-                <div class="slider-content">
-                  <div>
-                    <a class="headshot-link" href="images/linkedin.png" data-title="LinkedIn Logo." data-lightbox="work-small-3">
-                      <img class="headshot" src="images/linkedin.png" alt="LinkedIn Logo.">
-                    </a>
-                  </div>
-                    <p class="work-para">In the summer of 2017, I have the privilege of being a software engineering intern at LinkedIn Corporation. My project will mainly be focused on the paid features of the product, such as the Recruiters platform and LinkedIn Learning. I am looking forward to having a wonderful three months learning new skills, connecting with a bunch of new people, and having loads of fun!</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div id="page-projects" class="full-screen scrollspy">
-      <a class="go-to-contact tooltipped" data-position="right" data-delay="25" data-tooltip="Contact Info">
-        <i class="fa fa-chevron-circle-down"></i>
-      </a>
-      <div class="hover-menu"></div>
-
-      <div class="container">
-        <h4 class="about-me-header hide-on-med-and-up">Sweet Projects</h4>
-        <div class="info-cards">
-          <div class="project-slide">
-            <div class="card horizontal sticky-action large hide-on-small-only">
-              <div class="card-image hoverable">
-                <a class="hide-on-med-and-down" href="images/relive-large.png" data-title="Detailed View of a Photo (My Sister)." data-lightbox="relive-big">
-                  <img src="images/relive-large.png" alt="ReLive">
-                </a>
-                <a class="hide-on-large-only" href="images/relive-small.png" data-title="Gyroscope Logo." data-lightbox="relive-big">
-                  <img src="images/relive-small.png" alt="ReLive">
-                </a>
-              </div>
-              <div class="card-stacked">
+        <div class="container hide-on-med-and-down">
+          <div class="about-container">
+            <div>
+              <h4><i class="fa fa-code"></i> My Life as a Engineer <i class="fa fa-code"></i></h4>
+              <div class="card purple darken-1 hoverable">
                 <div class="card-content">
-                  <span class="card-title grey-text text-darken-4">ReLive</span>
-                  <p class="grey-text text-darken-2">ReLive is a smart, searchable photo gallery that lets you relive your past moments. I, along with 4 of my friends, built this web app for CalHacks 3.0 (November 2016). Users can upload any number of photos they like, and our app (with a little help from Microsoft) will analyze each picture thoroughly. Each picture is given a caption and a series of tags that describe it. We use these captions and tags to make the picture gallery searchable by keyword, so users can easily and quickly relive their memories.</p>
+                  <div class="slider-content">
+                    <div>
+                      <a class="headshot-link" href="images/headshot.png" data-title="Classic Headshot." data-lightbox="about-large">
+                    <img class="headshot" src="images/headshot.png" alt="Classic Headshot.">
+                  </a>
+                    </div>
+                      <p class="para">Hey! My name is <span class="my-name">Pranay Kumar</span> (if you didn't notice), and I am a proud undergraduate of the University of California, Berkeley. Through my coursework at school and past internship experience, I have developed an avid interest for computer science. I especially nerd out when it comes to web and mobile application development, and always love a good problem to solve. What's next for me as a computer scientist? I want to dive into the field of AI and machine learning - what's cooler than making a computer think like a human? Not much.</p>
+                  </div>
                 </div>
-                <div class="card-action">
+              </div>
+            </div>
+            <div>
+              <h4><i class="fa fa-futbol-o"></i> My Life as a Baller <i class="fa fa-futbol-o"></i></h4>
+              <div class="card purple darken-2 hoverable">
+                <div class="card-content">
+                  <div class="slider-content">
+                    <div>
+                      <a class="headshot-link" href="images/bball_me.png" data-title="NBA Player." data-lightbox="about-large">
+                        <img class="headshot" src="images/bball_me.png" alt="NBA Player.">
+                      </a>
+                    </div>
+                      <p class="para">Surprisingly, <span class="my-name">I do have a life outside of CS.</span> In my hometown of Foothill Ranch, California (<a href="http://tinyurl.com/h83pmn5" target="_blank">you haven't heard of it?</a>), there isn't much to do apart from soak up the sun and eat food. As a result, I found myself drawn towards watching and playing sports of all kind. When I'm not in front of my laptop, I'm usually in the gym lifting weights or working on my jump shot. When I'm not trying to (questionably) imitate Kobe Bryant, I'm probably out on the tennis court perfecting my groundstrokes. Sports give me a much appreciated break from my otherwise nerdy lifestyle.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <h4><i class="fa fa-graduation-cap"></i> My Life as a Cal Student  <i class="fa fa-graduation-cap"></i></h4>
+              <div class="card purple darken-2 hoverable">
+                <div class="card-content">
+                  <div class="slider-content">
+                    <div>
+                      <a class="headshot-link" href="images/cal_me.jpg" data-title="Go Bears!" data-lightbox="about-large">
+                        <img class="headshot" src="images/cal_me.jpg" alt="Go Bears!">
+                      </a>
+                    </div>
+                      <p class="para-small">Did I mention I go to <span class="my-name">Cal?</span> I am a third year undergraduate majoring in Electrical Engineering and Computer Sciences. Life in Berkeley is quite... interesting, as not a day goes by where I don't see something new. I stay involved in the CS community on campus by reading and tutoring for lower division classes, and as a member of Eta Kappa Nu, UC Berkeley's EECS Honors Society. When I'm not "studying" for midterms or "paying attention" in lecture, I participate in intramural basketball tournaments throughout the semester. These activities, the stimulating coursework, and the amazing friends I've made have made my experience at Cal unforgettable.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+        <h3 class="about-me-header hide-on-med-and-up">About Me</h3>
+        <div class="small-about-container hide-on-large-only">
+          <div class="slider-for">
+            <div class="slider">
+              <h4><i class="fa fa-code"></i> My Life as a Engineer</i></h4>
+              <div class="card purple darken-1 hoverable">
+                <div class="card-content white-text">
+                  <div class="slider-content">
+                    <div>
+                      <a class="headshot-link" href="images/headshot.png" data-title="Classic Headshot." data-lightbox="about-small-1">
+                        <img class="headshot" src="images/headshot.png" alt="Classic Headshot.">
+                      </a>
+                    </div>
+                      <p class="para paragraph">Hey! My name is <span class="my-name">Pranay Kumar</span> (if you didn't notice), and I am a proud undergraduate of the University of California, Berkeley. Through my coursework at school and past internship experience, I have developed an avid interest for computer science. I especially nerd out when it comes to web and mobile application development, and always love a good problem to solve. What's next for me as a computer scientist? I want to dive into the field of AI and machine learning - what's cooler than making a computer think like a human? Not much.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="slider">
+              <h4><i class="fa fa-futbol-o"></i> My Life as a Baller</i></h4>
+              <div class="card purple darken-2 hoverable">
+                <div class="card-content white-text">
+                  <div class="slider-content">
+                    <div>
+                      <a class="headshot-link" href="images/bball_me.png" data-title="NBA Player." data-lightbox="about-small-2">
+                        <img class="headshot" src="images/bball_me.png" alt="NBA Player.">
+                      </a>
+                    </div>
+                      <p class="para paragraph">Surprisingly, <span class="my-name">I do have a life outside of CS.</span> In my hometown of Foothill Ranch, California (<a href="http://tinyurl.com/h83pmn5" target="_blank">you haven't heard of it?</a>), there isn't much to do apart from soak up the sun and eat food. As a result, I found myself drawn towards watching and playing sports of all kind. When I'm not in front of my laptop, I'm usually in the gym lifting weights or working on my jump shot. When I'm not trying to (questionably) imitate Kobe Bryant, I'm probably out on the tennis court perfecting my groundstrokes. Sports give me a much appreciated break from my otherwise nerdy lifestyle.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="slider">
+              <h4><i class="fa fa-graduation-cap"></i> My Life as a Cal Student</h4>
+              <div class="card purple darken-2 hoverable">
+                <div class="card-content white-text">
+                  <div class="slider-content">
+                    <div>
+                      <a class="headshot-link" href="images/cal_me.jpg" data-title="Go Bears!" data-lightbox="about-small-3">
+                        <img class="headshot" src="images/cal_me.jpg" alt="Go Bears!">
+                      </a>
+                    </div>
+                      <p class="paragraph para-small">Did I mention I go to <span class="my-name">Cal?</span> I am a third year undergraduate majoring in Electrical Engineering and Computer Sciences. Life in Berkeley is quite... interesting, as not a day goes by where I don't see something new. I stay involved in the CS community on campus by reading and tutoring for lower division classes, and as a member of Eta Kappa Nu, UC Berkeley's EECS Honors Society. When I'm not "studying" for midterms or "paying attention" in lecture, I participate in intramural basketball tournaments throughout the semester. These activities, the stimulating coursework, and the amazing friends I've made have made my experience at Cal unforgettable.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="page-work" class="full-screen scrollspy">
+        <div class="hover-menu"></div>
+        <a href="#page-projects" class="next-arrow tooltipped" data-position="right" data-delay="25" data-tooltip="My Projects">
+          <i class="fa fa-chevron-circle-down"></i>
+        </a>
+
+        <div class="container hide-on-small-only">
+          <div class="row main-container">
+            <div class="col s4 content-right">
+              <img class="responsive-img" width="100px" style="display: inline-block" src="images/appfolio.png">
+              <h5>AppFolio</h5>
+              <div class="card-panel purple darken-1">
+                <p>In the summer of 2016, I had my first internship at AppFolio, Inc. My project over the summer was to develop the AppFolio Property Manager mobile app for iOS and Android using React Native and Ruby on Rails. My 14 weeks were extremely valuable, as I matured as an engineer and learned how to work efficiently and agile-ly in a team. Ultimately, we released the <a target="_blank" href="https://tinyurl.com/appfolio-mobile">app</a> to the public and it is a great success.</p>
+              </div>
+            </div>
+            <div class="col s4 content-right">
+              <img class="responsive-img" width="100px" style="display: inline-block" src="images/cal.png">
+              <h5>Laucity</h5>
+              <div class="card-panel purple darken-2">
+                <p>My three housemates in Berkeley are all CS nerds like me, so naturally in sophomore year we decided to create a startup application company - <a target="_blank" href="https://www.laucity.com">Laucity</a>. We specialize in developing web and mobile apps that make the lives of college students just a bit easier. I specialize in the mobile and front-end web development of our applications. Currently, we have one BIG idea that is under development. Stay tuned!</p>
+              </div>
+            </div>
+            <div class="col s4">
+              <img class="responsive-img" width="100px" style="display: inline-block" src="images/linkedin.png">
+              <h5>LinkedIn</h5>
+              <div class="card-panel purple darken-1">
+                <p>In the summer of 2017, I have the privilege of being a software engineering intern at LinkedIn Corporation. My project will mainly be focused on the paid features of the product, such as the Recruiters platform and LinkedIn Learning. I am looking forward to having a wonderful three months learning new skills, connecting with a bunch of new people, and having loads of fun!</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h4 class="about-me-header hide-on-med-and-up">Work Experience</h4>
+        <div class="small-about-container hide-on-med-and-up">
+          <div class="slider-for">
+            <div class="slider">
+              <h3 class="white-text">AppFolio</h3>
+              <div class="card purple darken-1 hoverable">
+                <div class="card-content white-text">
+                  <div class="slider-content">
+                    <div>
+                      <a class="headshot-link" href="images/appfolio.png" data-title="AppFolio Logo." data-lightbox="work-small">
+                        <img class="headshot" src="images/appfolio.png" alt="AppFolio Logo.">
+                      </a>
+                    </div>
+                      <p class="work-para">In the summer of 2016, I had my first internship at AppFolio, Inc. My project over the summer was to develop the AppFolio Property Manager mobile app for iOS and Android using React Native and Ruby on Rails. My 14 weeks were extremely valuable, as I matured as an engineer and learned how to work efficiently and agile-ly in a team. Ultimately, we released the <a target="_blank" href="https://tinyurl.com/appfolio-mobile">app</a> to the public and it is a great success.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="slider">
+              <h3 class="white-text">Laucity</h3>
+              <div class="card purple darken-2 hoverable">
+                <div class="card-content white-text">
+                  <div class="slider-content">
+                    <div>
+                      <a class="headshot-link" href="images/cal.png" data-title="Cal Logo." data-lightbox="work-small-2">
+                        <img class="headshot" src="images/cal.png" alt="Cal Logo.">
+                      </a>
+                    </div>
+                      <p class="work-para">My three housemates in Berkeley are all CS nerds like me, so naturally in sophomore year we decided to create a startup application company - <a target="_blank" href="https://www.laucity.com">Laucity</a>. We specialize in developing web and mobile apps that make the lives of college students just a bit easier. I specialize in the mobile and front-end web development of our applications. Currently, we have one BIG idea that is under development. Stay tuned!</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="slider">
+              <h3 class="white-text">LinkedIn</h3>
+              <div class="card purple darken-2 hoverable">
+                <div class="card-content white-text">
+                  <div class="slider-content">
+                    <div>
+                      <a class="headshot-link" href="images/linkedin.png" data-title="LinkedIn Logo." data-lightbox="work-small-3">
+                        <img class="headshot" src="images/linkedin.png" alt="LinkedIn Logo.">
+                      </a>
+                    </div>
+                      <p class="work-para">In the summer of 2017, I have the privilege of being a software engineering intern at LinkedIn Corporation. My project will mainly be focused on the paid features of the product, such as the Recruiters platform and LinkedIn Learning. I am looking forward to having a wonderful three months learning new skills, connecting with a bunch of new people, and having loads of fun!</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="page-projects" class="full-screen scrollspy">
+        <a class="go-to-contact tooltipped" data-position="right" data-delay="25" data-tooltip="Contact Info">
+          <i class="fa fa-chevron-circle-down"></i>
+        </a>
+        <div class="hover-menu"></div>
+
+        <div class="container">
+          <h4 class="about-me-header hide-on-med-and-up">Sweet Projects</h4>
+          <div class="info-cards">
+            <div class="project-slide">
+              <div class="card horizontal sticky-action large hide-on-small-only">
+                <div class="card-image hoverable">
+                  <a class="hide-on-med-and-down" href="images/relive-large.png" data-title="Detailed View of a Photo (My Sister)." data-lightbox="relive-big">
+                    <img src="images/relive-large.png" alt="ReLive">
+                  </a>
+                  <a class="hide-on-large-only" href="images/relive-small.png" data-title="Gyroscope Logo." data-lightbox="relive-big">
+                    <img src="images/relive-small.png" alt="ReLive">
+                  </a>
+                </div>
+                <div class="card-stacked">
+                  <div class="card-content">
+                    <span class="card-title grey-text text-darken-4">ReLive</span>
+                    <p class="grey-text text-darken-2">ReLive is a smart, searchable photo gallery that lets you relive your past moments. I, along with 4 of my friends, built this web app for CalHacks 3.0 (November 2016). Users can upload any number of photos they like, and our app (with a little help from Microsoft) will analyze each picture thoroughly. Each picture is given a caption and a series of tags that describe it. We use these captions and tags to make the picture gallery searchable by keyword, so users can easily and quickly relive their memories.</p>
+                  </div>
+                  <div class="card-action">
+                    <a target="_blank" href="http://calhacks-relive.herokuapp.com">Website</a>
+                    <a target="_blank" href="http://github.com/PranayJuneCS/ReLive">Code</a>
+                  </div>
+                </div>
+              </div>
+              <div class="card sticky-action medium hide-on-med-and-up">
+                <a class="activator more-info-button btn-floating btn purple hoverable"><i class="fa fa-info"></i></a>
+                <div class="card-action hide">
                   <a target="_blank" href="http://calhacks-relive.herokuapp.com">Website</a>
                   <a target="_blank" href="http://github.com/PranayJuneCS/ReLive">Code</a>
                 </div>
-              </div>
-            </div>
-            <div class="card sticky-action medium hide-on-med-and-up">
-              <a class="activator more-info-button btn-floating btn purple hoverable"><i class="fa fa-info"></i></a>
-              <div class="card-action hide">
-                <a target="_blank" href="http://calhacks-relive.herokuapp.com">Website</a>
-                <a target="_blank" href="http://github.com/PranayJuneCS/ReLive">Code</a>
-              </div>
-              <div class="card-image height-100 hoverable">
-                <a href="images/relive-large.png" data-title="Detailed View of a Photo (My Sister)." data-lightbox="relive-small">
-                </a>
-                <a class="hide-on-large-only" href="images/relive-small.png" data-title="Gyroscope Logo." data-lightbox="relive-small">
-                  <img src="images/relive-small.png" alt="ReLive">
-                </a>
-              </div>
-              <div class="card-reveal">
-                <span class="card-title grey-text text-darken-4">ReLive<i class="material-icons right">close</i></span>
-                <p class="grey-text text-darken-2">ReLive is a smart, searchable photo gallery that lets you relive your past moments. I, along with 4 of my friends, built this web app for CalHacks 3.0 (November 2016). Users can upload any number of photos they like, and our app (with a little help from Microsoft) will analyze each picture thoroughly. Each picture is given a caption and a series of tags that describe it. We use these captions and tags to make the picture gallery searchable by keyword, so users can easily and quickly relive their memories. </p>
-              </div>
-            </div>
-          </div>
-
-          <div class="project-slide">
-            <div class="card horizontal sticky-action large hide-on-small-only">
-              <div class="card-image hoverable">
-                <a class="hide-on-med-and-down" href="images/checkers.png" data-title="Loading Screen." data-lightbox="checkers-big">
-                  <img src="images/checkers.png" alt="ReLive">
-                </a>
-                <a class="hide-on-large-only" href="images/checkers-large.png" data-title="The Checkerboard." data-lightbox="checkers-big">
-                  <img src="images/checkers-large.png" alt="ReLive">
-                </a>
-              </div>
-              <div class="card-stacked">
-                <div class="card-content">
-                  <span class="card-title grey-text text-darken-4">CheckersSquared</span>
-                  <p class="grey-text text-darken-2">CheckersSquared is a fun, web-based twist on 
-                  Checkers. In this version of the game, there are four players and the person with the most points at the end of the game wins. This was a project I contributed to at CalHacks 2.0 (October 2015), and it was my first real venture into web development. We used Node.js as the backend framework, and integrated Socket.io to easily relay game information (and smack talk) between players. </p>
+                <div class="card-image height-100 hoverable">
+                  <a href="images/relive-large.png" data-title="Detailed View of a Photo (My Sister)." data-lightbox="relive-small">
+                  </a>
+                  <a class="hide-on-large-only" href="images/relive-small.png" data-title="Gyroscope Logo." data-lightbox="relive-small">
+                    <img src="images/relive-small.png" alt="ReLive">
+                  </a>
                 </div>
-                <div class="card-action">
+                <div class="card-reveal">
+                  <span class="card-title grey-text text-darken-4">ReLive<i class="material-icons right">close</i></span>
+                  <p class="grey-text text-darken-2">ReLive is a smart, searchable photo gallery that lets you relive your past moments. I, along with 4 of my friends, built this web app for CalHacks 3.0 (November 2016). Users can upload any number of photos they like, and our app (with a little help from Microsoft) will analyze each picture thoroughly. Each picture is given a caption and a series of tags that describe it. We use these captions and tags to make the picture gallery searchable by keyword, so users can easily and quickly relive their memories. </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="project-slide">
+              <div class="card horizontal sticky-action large hide-on-small-only">
+                <div class="card-image hoverable">
+                  <a class="hide-on-med-and-down" href="images/checkers.png" data-title="Loading Screen." data-lightbox="checkers-big">
+                    <img src="images/checkers.png" alt="ReLive">
+                  </a>
+                  <a class="hide-on-large-only" href="images/checkers-large.png" data-title="The Checkerboard." data-lightbox="checkers-big">
+                    <img src="images/checkers-large.png" alt="ReLive">
+                  </a>
+                </div>
+                <div class="card-stacked">
+                  <div class="card-content">
+                    <span class="card-title grey-text text-darken-4">CheckersSquared</span>
+                    <p class="grey-text text-darken-2">CheckersSquared is a fun, web-based twist on 
+                    Checkers. In this version of the game, there are four players and the person with the most points at the end of the game wins. This was a project I contributed to at CalHacks 2.0 (October 2015), and it was my first real venture into web development. We used Node.js as the backend framework, and integrated Socket.io to easily relay game information (and smack talk) between players. </p>
+                  </div>
+                  <div class="card-action">
+                    <a target="_blank" href="http://checkerssquared.herokuapp.com">Website</a>
+                    <a target="_blank" href="http://github.com/aaadawg/CALHACKS">Code</a>
+                  </div>
+                </div>
+              </div>
+              <div class="card sticky-action medium hide-on-med-and-up">
+                <a class="activator more-info-button btn-floating btn purple hoverable"><i class="fa fa-info"></i></a>
+                <div class="card-action hide">
                   <a target="_blank" href="http://checkerssquared.herokuapp.com">Website</a>
                   <a target="_blank" href="http://github.com/aaadawg/CALHACKS">Code</a>
                 </div>
-              </div>
-            </div>
-            <div class="card sticky-action medium hide-on-med-and-up">
-              <a class="activator more-info-button btn-floating btn purple hoverable"><i class="fa fa-info"></i></a>
-              <div class="card-action hide">
-                <a target="_blank" href="http://checkerssquared.herokuapp.com">Website</a>
-                <a target="_blank" href="http://github.com/aaadawg/CALHACKS">Code</a>
-              </div>
-              <div class="card-image height-100 hoverable">
-                <a href="images/checkers.png" data-title="The Checkerboard." data-lightbox="checkers-small">
-                </a>
-                <a href="images/checkers-large.png" data-title="Loading Screen." data-lightbox="checkers-small">
-                  <img src="images/checkers-large.png" alt="CheckersSquared">
-                </a>
-              </div>
-              <div class="card-reveal">
-                <span class="card-title grey-text text-darken-4">CheckersSquared<i class="material-icons right">close</i></span>
-                <p class="grey-text text-darken-2">CheckersSquared is a fun, web-based twist on 
-                  Checkers. In this version of the game, there are four players and the person with the most points at the end of the game wins. This was a project I contributed to at CalHacks 2.0 (October 2015), and it was my first real venture into web development. We used Node.js as the backend framework, and integrated Socket.io to easily relay game information (and smack talk) between players. </p>
-              </div>
-            </div>
-          </div>
-
-          <div class="project-slide">
-            <div class="card horizontal sticky-action large hide-on-small-only">
-              <div class="card-image hoverable">
-                <a class="hide-on-med-and-down" href="images/course-guide-large.png" data-title="Customized Home Screen." data-lightbox="course-guide-big">
-                  <img src="images/course-guide-large.png" alt="Great Course Guide">
-                </a>
-                <a class="hide-on-large-only" href="images/course-guide-small.png" data-title="Intro Screen." data-lightbox="course-guide-big">
-                  <img src="images/course-guide-small.png" alt="Great Course Guide">
-                </a>
-              </div>
-              <div class="card-stacked">
-                <div class="card-content">
-                  <span class="card-title grey-text text-darken-4">Great Course Guide</span>
-                  <p class="grey-text text-darken-2">Great Course Guide is a helpful guide for UC Berkeley EECS students who don't really know which professors are the best. This web app uses course survey data from the past 20 years to recommend courses for students based on their satisfied prerequisites and the best professors. All information is laid out in an intuitive and professional manner to ease the course selection process. This app uses the Material Design pattern for the user interface, and Ruby on Rails for the back end.</p>
+                <div class="card-image height-100 hoverable">
+                  <a href="images/checkers.png" data-title="The Checkerboard." data-lightbox="checkers-small">
+                  </a>
+                  <a href="images/checkers-large.png" data-title="Loading Screen." data-lightbox="checkers-small">
+                    <img src="images/checkers-large.png" alt="CheckersSquared">
+                  </a>
                 </div>
-                <div class="card-action">
+                <div class="card-reveal">
+                  <span class="card-title grey-text text-darken-4">CheckersSquared<i class="material-icons right">close</i></span>
+                  <p class="grey-text text-darken-2">CheckersSquared is a fun, web-based twist on 
+                    Checkers. In this version of the game, there are four players and the person with the most points at the end of the game wins. This was a project I contributed to at CalHacks 2.0 (October 2015), and it was my first real venture into web development. We used Node.js as the backend framework, and integrated Socket.io to easily relay game information (and smack talk) between players. </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="project-slide">
+              <div class="card horizontal sticky-action large hide-on-small-only">
+                <div class="card-image hoverable">
+                  <a class="hide-on-med-and-down" href="images/course-guide-large.png" data-title="Customized Home Screen." data-lightbox="course-guide-big">
+                    <img src="images/course-guide-large.png" alt="Great Course Guide">
+                  </a>
+                  <a class="hide-on-large-only" href="images/course-guide-small.png" data-title="Intro Screen." data-lightbox="course-guide-big">
+                    <img src="images/course-guide-small.png" alt="Great Course Guide">
+                  </a>
+                </div>
+                <div class="card-stacked">
+                  <div class="card-content">
+                    <span class="card-title grey-text text-darken-4">Great Course Guide</span>
+                    <p class="grey-text text-darken-2">Great Course Guide is a helpful guide for UC Berkeley EECS students who don't really know which professors are the best. This web app uses course survey data from the past 20 years to recommend courses for students based on their satisfied prerequisites and the best professors. All information is laid out in an intuitive and professional manner to ease the course selection process. This app uses the Material Design pattern for the user interface, and Ruby on Rails for the back end.</p>
+                  </div>
+                  <div class="card-action">
+                    <a target="_blank" href="http://cs169-great-course-guide.herokuapp.com">Website</a>
+                    <a target="_blank" href="https://github.com/sophiazheng/CS169_Great_Course_Guide">Code</a>
+                  </div>
+                </div>
+              </div>
+              <div class="card sticky-action medium hide-on-med-and-up">
+                <a class="activator more-info-button btn-floating btn purple hoverable"><i class="fa fa-info"></i></a>
+                <div class="card-action hide">
                   <a target="_blank" href="http://cs169-great-course-guide.herokuapp.com">Website</a>
                   <a target="_blank" href="https://github.com/sophiazheng/CS169_Great_Course_Guide">Code</a>
                 </div>
+                <div class="card-image height-100 hoverable">
+                  <a class="" href="images/course-guide-small.png" data-title="Intro Screen." data-lightbox="course-guide-small">
+                    <img src="images/course-guide-small.png" alt="Great Course Guide">
+                  </a>
+                  <a href="images/course-guide-large.png" data-title="Customized Home Screen." data-lightbox="course-guide-small">
+                  </a>
+                </div>
+                <div class="card-reveal">
+                  <span class="card-title grey-text text-darken-4">Great Course Guide<i class="material-icons right">close</i></span>
+                  <p class="grey-text text-darken-2">Great Course Guide is a helpful guide for UC Berkeley EECS students who don't really know which professors are the best. This web app uses course survey data from the past 20 years to recommend courses for students based on their satisfied prerequisites and the best professors. All information is laid out in an intuitive and professional manner to ease the course selection process. This app uses the Material Design pattern for the user interface, and Ruby on Rails for the back end.</p>
+                </div>
               </div>
             </div>
-            <div class="card sticky-action medium hide-on-med-and-up">
-              <a class="activator more-info-button btn-floating btn purple hoverable"><i class="fa fa-info"></i></a>
-              <div class="card-action hide">
-                <a target="_blank" href="http://cs169-great-course-guide.herokuapp.com">Website</a>
-                <a target="_blank" href="https://github.com/sophiazheng/CS169_Great_Course_Guide">Code</a>
-              </div>
-              <div class="card-image height-100 hoverable">
-                <a class="" href="images/course-guide-small.png" data-title="Intro Screen." data-lightbox="course-guide-small">
-                  <img src="images/course-guide-small.png" alt="Great Course Guide">
-                </a>
-                <a href="images/course-guide-large.png" data-title="Customized Home Screen." data-lightbox="course-guide-small">
-                </a>
-              </div>
-              <div class="card-reveal">
-                <span class="card-title grey-text text-darken-4">Great Course Guide<i class="material-icons right">close</i></span>
-                <p class="grey-text text-darken-2">Great Course Guide is a helpful guide for UC Berkeley EECS students who don't really know which professors are the best. This web app uses course survey data from the past 20 years to recommend courses for students based on their satisfied prerequisites and the best professors. All information is laid out in an intuitive and professional manner to ease the course selection process. This app uses the Material Design pattern for the user interface, and Ruby on Rails for the back end.</p>
-              </div>
-            </div>
-          </div>
 
-          <div class="project-slide">
-            <div class="card horizontal sticky-action large hide-on-small-only">
-              <div class="card-image hoverable">
-                <a class="hide-on-med-and-down" href="images/plip.png" data-title="Lobby Screen." data-lightbox="plip-big">
-                  <img src="images/plip-big.png" alt="Plip.io">
-                </a>
-                <a class="hide-on-large-only" href="images/plip.png" data-title="Lobby Screen." data-lightbox="plip-big-1">
-                  <img src="images/plip.png" alt="Plip.io">
-                </a>
-              </div>
-              <div class="card-stacked">
-                <div class="card-content">
-                  <span class="card-title grey-text text-darken-4">Plip.io</span>
-                  <p class="grey-text text-darken-2">Plip.io was inspired by other popular IO games like sliter.io and agar.io. Plip.io is an online multiplayer tank shooter game, built entirely in Javascript. For the graphics, we used a (Javascript) library called Phaser.io. Plip.io is super action packed and extremely fun, and the next step before it is released to the public is to scale so we can support hundreds of players. Stay tuned!</p>
+            <div class="project-slide">
+              <div class="card horizontal sticky-action large hide-on-small-only">
+                <div class="card-image hoverable">
+                  <a class="hide-on-med-and-down" href="images/plip.png" data-title="Lobby Screen." data-lightbox="plip-big">
+                    <img src="images/plip-big.png" alt="Plip.io">
+                  </a>
+                  <a class="hide-on-large-only" href="images/plip.png" data-title="Lobby Screen." data-lightbox="plip-big-1">
+                    <img src="images/plip.png" alt="Plip.io">
+                  </a>
                 </div>
-                <div class="card-action">
-                  <a target="_blank" href="https://bitbucket.org/Rohit-L/plip.io/src">Code</a>a>
+                <div class="card-stacked">
+                  <div class="card-content">
+                    <span class="card-title grey-text text-darken-4">Plip.io</span>
+                    <p class="grey-text text-darken-2">Plip.io was inspired by other popular IO games like sliter.io and agar.io. Plip.io is an online multiplayer tank shooter game, built entirely in Javascript. For the graphics, we used a (Javascript) library called Phaser.io. Plip.io is super action packed and extremely fun, and the next step before it is released to the public is to scale so we can support hundreds of players. Stay tuned!</p>
+                  </div>
+                  <div class="card-action">
+                    <a target="_blank" href="https://bitbucket.org/Rohit-L/plip.io/src">Code</a>a>
+                  </div>
+                </div>
+              </div>
+              <div class="card sticky-action medium hide-on-med-and-up">
+                <a class="activator more-info-button btn-floating btn purple hoverable"><i class="fa fa-info"></i></a>
+                <div class="card-action hide">
+                  <a target="_blank" href="https://bitbucket.org/Rohit-L/plip.io/src">Code</a>
+                </div>
+                <div class="card-image height-100 hoverable">
+                  <a class="" href="images/plip.png" data-title="Lobby Screen." data-lightbox="plip-small">
+                    <img src="images/plip.png" alt="Plip.io">
+                  </a>
+                </div>
+                <div class="card-reveal">
+                  <span class="card-title grey-text text-darken-4">Plip.io<i class="material-icons right">close</i></span>
+                  <p class="grey-text text-darken-2">Plip.io was inspired by other popular IO games like sliter.io and agar.io. Plip.io is an online multiplayer tank shooter game, built entirely in Javascript. For the graphics, we used a (Javascript) library called Phaser.io. This game is super action packed and extremely fun, and the next step before it is released to the public is to scale it to be able to support hundreds of players. Stay tuned!</p>
                 </div>
               </div>
             </div>
-            <div class="card sticky-action medium hide-on-med-and-up">
-              <a class="activator more-info-button btn-floating btn purple hoverable"><i class="fa fa-info"></i></a>
-              <div class="card-action hide">
-                <a target="_blank" href="https://bitbucket.org/Rohit-L/plip.io/src">Code</a>
-              </div>
-              <div class="card-image height-100 hoverable">
-                <a class="" href="images/plip.png" data-title="Lobby Screen." data-lightbox="plip-small">
-                  <img src="images/plip.png" alt="Plip.io">
-                </a>
-              </div>
-              <div class="card-reveal">
-                <span class="card-title grey-text text-darken-4">Plip.io<i class="material-icons right">close</i></span>
-                <p class="grey-text text-darken-2">Plip.io was inspired by other popular IO games like sliter.io and agar.io. Plip.io is an online multiplayer tank shooter game, built entirely in Javascript. For the graphics, we used a (Javascript) library called Phaser.io. This game is super action packed and extremely fun, and the next step before it is released to the public is to scale it to be able to support hundreds of players. Stay tuned!</p>
-              </div>
-            </div>
-          </div>
 
-          <div class="project-slide">
-            <div class="card horizontal sticky-action large hide-on-small-only">
-              <div class="card-image hoverable">
-                <a class="hide-on-med-and-down" href="images/pacman.png" data-title="The Game." data-lightbox="pacman-big">
-                  <img src="images/pacman.png" alt="Pacman">
-                </a>
-                <a class="hide-on-large-only" href="images/pacman-small.png" data-title="The Game." data-lightbox="pacman-big-1">
-                  <img src="images/pacman-small.png" alt="Pacman">
-                </a>
-              </div>
-              <div class="card-stacked">
-                <div class="card-content">
-                  <span class="card-title grey-text text-darken-4">Pacman</span>
-                  <p class="grey-text text-darken-2">We've all played Pacman before, and this game is nothing different than the classic. But my roommate and I one day decided to build the game in Java for no particular reason. And so we did. For the graphics, we used Princeton University's <em>STDraw</em> library. One thing we plan to add in the future is (artificial) intelligence for the ghosts, so they don't act that dumb.</p>
+            <div class="project-slide">
+              <div class="card horizontal sticky-action large hide-on-small-only">
+                <div class="card-image hoverable">
+                  <a class="hide-on-med-and-down" href="images/pacman.png" data-title="The Game." data-lightbox="pacman-big">
+                    <img src="images/pacman.png" alt="Pacman">
+                  </a>
+                  <a class="hide-on-large-only" href="images/pacman-small.png" data-title="The Game." data-lightbox="pacman-big-1">
+                    <img src="images/pacman-small.png" alt="Pacman">
+                  </a>
                 </div>
-                <div class="card-action">
+                <div class="card-stacked">
+                  <div class="card-content">
+                    <span class="card-title grey-text text-darken-4">Pacman</span>
+                    <p class="grey-text text-darken-2">We've all played Pacman before, and this game is nothing different than the classic. But my roommate and I one day decided to build the game in Java for no particular reason. And so we did. For the graphics, we used Princeton University's <em>STDraw</em> library. One thing we plan to add in the future is (artificial) intelligence for the ghosts, so they don't act that dumb.</p>
+                  </div>
+                  <div class="card-action">
+                    <a target="_blank" href="https://github.com/Rohit-L/Pacman-Game">Code</a>
+                  </div>
+                </div>
+              </div>
+              <div class="card sticky-action medium hide-on-med-and-up">
+                <a class="activator more-info-button btn-floating btn purple hoverable"><i class="fa fa-info"></i></a>
+                <div class="card-action hide">
                   <a target="_blank" href="https://github.com/Rohit-L/Pacman-Game">Code</a>
                 </div>
-              </div>
-            </div>
-            <div class="card sticky-action medium hide-on-med-and-up">
-              <a class="activator more-info-button btn-floating btn purple hoverable"><i class="fa fa-info"></i></a>
-              <div class="card-action hide">
-                <a target="_blank" href="https://github.com/Rohit-L/Pacman-Game">Code</a>
-              </div>
-              <div class="card-image height-100 hoverable">
-                <a class="" href="images/pacman-small.png" data-title="The Game." data-lightbox="pacman-small">
-                  <img src="images/pacman-small.png" alt="Pacman">
-                </a>
-              </div>
-              <div class="card-reveal">
-                <span class="card-title grey-text text-darken-4">Pacman<i class="material-icons right">close</i></span>
-                <p class="grey-text text-darken-2">We've all played Pacman before, and this game is nothing different than the classic. But my roommate and I one day decided to build the game in Java for no particular reason. And so we did. For the graphics, we used Princeton University's <em>STDraw</em> library. One thing we plan to add in the future is (artificial) intelligence for the ghosts, so they don't act that dumb.</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="project-slide">
-            <div class="card horizontal sticky-action large hide-on-small-only">
-              <div class="card-image hoverable">
-                <a class="hide-on-med-and-down" href="images/website-big.png" data-title="Home Page." data-lightbox="website-big">
-                  <img src="images/website-big.png" alt="Personal Website">
-                </a>
-                <a class="hide-on-large-only" href="images/website.png" data-title="Home Page." data-lightbox="website-big-1">
-                  <img src="images/website.png" alt="Personal Website">
-                </a>
-              </div>
-              <div class="card-stacked">
-                <div class="card-content">
-                  <span class="card-title grey-text text-darken-4">Personal Website</span>
-                  <p class="grey-text text-darken-2">Hello! My name is... Okay I'm kidding. I created this website in December 2016 with the hopes of getting my name out there and improving my web development skills. You may have noticed that I chose an unconventional, magazine-like design, and that was intentional. Every scroll of the screen or swipe of the finger is a turn of a page in the magazine. Thanks for visiting, and any feedback is welcome!</p>
+                <div class="card-image height-100 hoverable">
+                  <a class="" href="images/pacman-small.png" data-title="The Game." data-lightbox="pacman-small">
+                    <img src="images/pacman-small.png" alt="Pacman">
+                  </a>
                 </div>
-                <div class="card-action">
+                <div class="card-reveal">
+                  <span class="card-title grey-text text-darken-4">Pacman<i class="material-icons right">close</i></span>
+                  <p class="grey-text text-darken-2">We've all played Pacman before, and this game is nothing different than the classic. But my roommate and I one day decided to build the game in Java for no particular reason. And so we did. For the graphics, we used Princeton University's <em>STDraw</em> library. One thing we plan to add in the future is (artificial) intelligence for the ghosts, so they don't act that dumb.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="project-slide">
+              <div class="card horizontal sticky-action large hide-on-small-only">
+                <div class="card-image hoverable">
+                  <a class="hide-on-med-and-down" href="images/website-big.png" data-title="Home Page." data-lightbox="website-big">
+                    <img src="images/website-big.png" alt="Personal Website">
+                  </a>
+                  <a class="hide-on-large-only" href="images/website.png" data-title="Home Page." data-lightbox="website-big-1">
+                    <img src="images/website.png" alt="Personal Website">
+                  </a>
+                </div>
+                <div class="card-stacked">
+                  <div class="card-content">
+                    <span class="card-title grey-text text-darken-4">Personal Website</span>
+                    <p class="grey-text text-darken-2">Hello! My name is... Okay I'm kidding. I created this website in December 2016 with the hopes of getting my name out there and improving my web development skills. You may have noticed that I chose an unconventional, magazine-like design, and that was intentional. Every scroll of the screen or swipe of the finger is a turn of a page in the magazine. Thanks for visiting, and any feedback is welcome!</p>
+                  </div>
+                  <div class="card-action">
+                    <a target="_blank" href="http://github.com/PranayJuneCS/Website">Code</a>
+                  </div>
+                </div>
+              </div>
+              <div class="card sticky-action medium hide-on-med-and-up">
+                <a class="activator more-info-button btn-floating btn purple hoverable"><i class="fa fa-info"></i></a>
+                <div class="card-action hide">
                   <a target="_blank" href="http://github.com/PranayJuneCS/Website">Code</a>
                 </div>
+                <div class="card-image height-100 hoverable">
+                  <a class="" href="images/website.png" data-title="Home Page." data-lightbox="website-small">
+                    <img src="images/website.png" alt="Personal Website">
+                  </a>
+                </div>
+                <div class="card-reveal">
+                  <span class="card-title grey-text text-darken-4">Personal Website<i class="material-icons right">close</i></span>
+                  <p class="grey-text text-darken-2">Hello! My name is... Okay I'm kidding. I created this website in December 2016 with the hopes of getting my name out there and improving my web development skills. You may have noticed that I chose an unconventional, magazine-like design, and that was intentional. Every scroll of the screen or swipe of the finger is a turn of a page in the magazine. Thanks for visiting, and any feedback is welcome!</p>
+                </div>
               </div>
             </div>
-            <div class="card sticky-action medium hide-on-med-and-up">
-              <a class="activator more-info-button btn-floating btn purple hoverable"><i class="fa fa-info"></i></a>
-              <div class="card-action hide">
-                <a target="_blank" href="http://github.com/PranayJuneCS/Website">Code</a>
-              </div>
-              <div class="card-image height-100 hoverable">
-                <a class="" href="images/website.png" data-title="Home Page." data-lightbox="website-small">
-                  <img src="images/website.png" alt="Personal Website">
-                </a>
-              </div>
-              <div class="card-reveal">
-                <span class="card-title grey-text text-darken-4">Personal Website<i class="material-icons right">close</i></span>
-                <p class="grey-text text-darken-2">Hello! My name is... Okay I'm kidding. I created this website in December 2016 with the hopes of getting my name out there and improving my web development skills. You may have noticed that I chose an unconventional, magazine-like design, and that was intentional. Every scroll of the screen or swipe of the finger is a turn of a page in the magazine. Thanks for visiting, and any feedback is welcome!</p>
-              </div>
-            </div>
+
           </div>
-
         </div>
+        
       </div>
-      
-    </div>
 
-    <div id="page-contact" class="full-screen">
-      <h1 id="yep">Yep, that's me.</h1>
-      <p>pkr2100@gmail.com | (949) 232-6600</p>
-      <img class="img-circle" src="images/me.jpg">
-      <div class="bottom-page">
-        <a class="contact-icon" id="mail-to" target="_blank" href="https://mail.google.com/mail/?view=cm&fs=1&to=pkr2100@gmail.com">
-          <i class="fa fa-2x fa-envelope-o"></i>
-        </a>
-        <a class="contact-icon" href="tel:949-232-6600">
-          <i class="fa fa-2x fa-phone"></i>
-        </a>
-        <a class="contact-icon" target="_blank" href="https://fb.me/pranay.kumar.944">
-          <i class="fa fa-2x fa-facebook-official"></i>
-        </a>
-        <a href="#page-home" class="col s12 pull-s3 arrow-color">
-          <i class="fa fa-3x fa-home"></i>
-        </a>
-        <a class="contact-icon" target="_blank" href="https://github.com/PranayJuneCS/">
-          <i class="fa fa-2x fa-github-square"></i>
-        </a>
-        <a class="contact-icon" target="_blank" href="https://linkedin.com/in/prankum">
-          <i class="fa fa-2x fa-linkedin-square"></i>
-        </a>
-        <a class="" target="_blank" href="https://m.me/pranay.kumar.944">
-          <img id="messenger-contact"
-          src="images/messenger.png"
-          onmouseover="this.src='images/messenger2.png'"
-          onmouseout="this.src='images/messenger.png'">
-        </a>
-      </div>
-    </div>
-
-    <div id="mySidenav" class="sidenav">
-      <div id="sidebar-links">
-        <a href="javascript:void(0)" class="closebtn">&times;</a>
-        <a class="sidebar-link" href="#page-home">HOME</a>
-        <a class="sidebar-link" href="#page-about">ABOUT</a>
-        <a class="sidebar-link" href="#page-work">WORK</a>
-        <a class="sidebar-link" href="#page-projects">PROJECTS</a>
-        <a id="contact-homie" href="#page-contact">CONTACT</a>
-      </div>
-      <div id="sidebar-info">
-        <div id="connect-links">
-          <a id="fb-box" target="_blank" href="https://fb.me/pranay.kumar.944">
-            <i class="fa fa-facebook-official"></i>
+      <div id="page-contact" class="full-screen">
+        <h1 id="yep">Yep, that's me.</h1>
+        <p>pkr2100@gmail.com | (949) 232-6600</p>
+        <img class="img-circle" src="images/me.jpg">
+        <div class="bottom-page">
+          <a class="contact-icon" id="mail-to" target="_blank" href="https://mail.google.com/mail/?view=cm&fs=1&to=pkr2100@gmail.com">
+            <i class="fa fa-2x fa-envelope-o"></i>
           </a>
-          <a id="github-box" target="_blank" href="https://github.com/PranayJuneCS/">
-            <i class="fa fa-github-square"></i>
+          <a class="contact-icon" href="tel:949-232-6600">
+            <i class="fa fa-2x fa-phone"></i>
           </a>
-          <a id="linkedin-box" target="_blank" href="https://linkedin.com/in/prankum">
-            <i class="fa fa-linkedin-square"></i>
+          <a class="contact-icon" target="_blank" href="https://fb.me/pranay.kumar.944">
+            <i class="fa fa-2x fa-facebook-official"></i>
           </a>
-          <a id="messenger-box" target="_blank" href="https://m.me/pranay.kumar.944">
-            <img id="messenger-sidebar"
+          <a href="#page-home" class="col s12 pull-s3 arrow-color">
+            <i class="fa fa-3x fa-home"></i>
+          </a>
+          <a class="contact-icon" target="_blank" href="https://github.com/PranayJuneCS/">
+            <i class="fa fa-2x fa-github-square"></i>
+          </a>
+          <a class="contact-icon" target="_blank" href="https://linkedin.com/in/prankum">
+            <i class="fa fa-2x fa-linkedin-square"></i>
+          </a>
+          <a class="" target="_blank" href="https://m.me/pranay.kumar.944">
+            <img id="messenger-contact"
             src="images/messenger.png"
             onmouseover="this.src='images/messenger2.png'"
             onmouseout="this.src='images/messenger.png'">
           </a>
         </div>
-        <span>Pranay Kumar | 2017</span>
+      </div>
+
+      <div id="mySidenav" class="sidenav">
+        <div id="sidebar-links">
+          <a href="javascript:void(0)" class="closebtn">&times;</a>
+          <a class="sidebar-link" href="#page-home">HOME</a>
+          <a class="sidebar-link" href="#page-about">ABOUT</a>
+          <a class="sidebar-link" href="#page-work">WORK</a>
+          <a class="sidebar-link" href="#page-projects">PROJECTS</a>
+          <a id="contact-homie" href="#page-contact">CONTACT</a>
+        </div>
+        <div id="sidebar-info">
+          <div id="connect-links">
+            <a id="fb-box" target="_blank" href="https://fb.me/pranay.kumar.944">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+            <a id="github-box" target="_blank" href="https://github.com/PranayJuneCS/">
+              <i class="fa fa-github-square"></i>
+            </a>
+            <a id="linkedin-box" target="_blank" href="https://linkedin.com/in/prankum">
+              <i class="fa fa-linkedin-square"></i>
+            </a>
+            <a id="messenger-box" target="_blank" href="https://m.me/pranay.kumar.944">
+              <img id="messenger-sidebar"
+              src="images/messenger.png"
+              onmouseover="this.src='images/messenger2.png'"
+              onmouseout="this.src='images/messenger.png'">
+            </a>
+          </div>
+          <span>Pranay Kumar | 2017</span>
+        </div>
       </div>
     </div>
-    <script src="scripts/index.js"></script>
   </body>
 </html>

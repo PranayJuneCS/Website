@@ -1,4 +1,5 @@
 $(function() {
+  $(".yo").removeClass("hide");
 
   /* START REAL JS */
 
@@ -378,17 +379,26 @@ $(function() {
     scrollOffset: 1
   });
 
-  $("#typed").typed({
-    stringsElement: $('#typed-strings'),
-    startDelay: 800,
-    typeSpeed: 50,
-    showCursor: false,
-    backSpeed: 30,
-    callback: function() {
-      $(".intro, .home-line-break, .home-info").removeClass("hide").addClass("fadeIn");
-    }
-  });
+  setTimeout(function() {
+    $(".yo").addClass("fadeOutDownBig");
+    $("#typed").typed({
+      stringsElement: $('#typed-strings'),
+      startDelay: 200,
+      typeSpeed: 50,
+      showCursor: false,
+      backSpeed: 30,
+      callback: function() {
+        $(".intro, .home-line-break, .home-info").removeClass("hide").addClass("fadeIn");
+      }
+    });
+    setTimeout(function() {
+      $(".yo").addClass("hide");
+    }, 500);
+  }, 2000);
 
+
+
+  
   $(".more-info-button").click(function(e) {
     $(e.currentTarget.nextElementSibling).removeClass("hide");
   });
