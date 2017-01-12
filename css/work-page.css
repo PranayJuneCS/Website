@@ -5,3 +5,18 @@
   -moz-background-size: cover;
   -o-background-size: cover;
 }
+
+#page-work .container {
+  height: 100%;
+  text-align: center;
+}
+
+.main-container {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.content-right {
+  border-right: 2px solid white;
+}
